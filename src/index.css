@@ -1,28 +1,220 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-serif: "Cormorant Garamond", serif;
-  --font-sans: "Inter", sans-serif;
-  --color-gold: #C5A059;
-  --color-gold-light: #E5C78B;
-  --color-gold-dark: #A67C37;
+    --font-serif: "Cormorant Garamond", serif;
+    --font-sans: "Montserrat", sans-serif;
+    --color-gold: #B8962E;
+    --color-gold-light: #D4AF5A;
+    --color-gold-dark: #8B6914;
+    --color-cream: #FAF7F2;
+    --color-warm-white: #FFFFFF;
+    --color-charcoal: #2C2C2C;
+    --color-taupe: #8C7B6B;
 }
 
 body {
-  @apply bg-white text-zinc-900 font-sans antialiased;
+    @apply bg-[#FAF7F2] text-[#2C2C2C] font-sans antialiased;
+    letter-spacing: 0.01em;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply font-serif;
+    @apply font-serif;
+    font-weight: 400;
+    letter-spacing: 0.02em;
 }
 
+/* Kismet-style luxury typography */
+.font-display {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+}
+
+/* Gold gradient */
 .gold-gradient {
-  background: linear-gradient(135deg, var(--color-gold-dark) 0%, var(--color-gold) 50%, var(--color-gold-light) 100%);
+    background: linear-gradient(135deg, #B8962E 0%, #D4AF5A 40%, #B8962E 60%, #8B6914 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.gold-text-gradient {
-  background: linear-gradient(135deg, var(--color-gold-dark) 0%, var(--color-gold) 50%, var(--color-gold-light) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Kismet-style buttons */
+.btn-luxury {
+    @apply inline-block px-8 py-3 text-xs tracking-widest uppercase font-sans font-medium;
+    background-color: transparent;
+    border: 1px solid #B8962E;
+    color: #B8962E;
+    transition: all 0.3s ease;
+    letter-spacing: 0.15em;
+}
+
+.btn-luxury:hover {
+    background-color: #B8962E;
+    color: #FAF7F2;
+}
+
+.btn-luxury-filled {
+    @apply inline-block px-8 py-3 text-xs tracking-widest uppercase font-sans font-medium;
+    background-color: #2C2C2C;
+    border: 1px solid #2C2C2C;
+    color: #FAF7F2;
+    transition: all 0.3s ease;
+    letter-spacing: 0.15em;
+}
+
+.btn-luxury-filled:hover {
+    background-color: #B8962E;
+    border-color: #B8962E;
+}
+
+/* Elegant divider */
+.divider-gold {
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #B8962E, transparent);
+    margin: 1rem auto;
+}
+
+/* Product card Kismet style */
+.product-card {
+    background: #FFFFFF;
+    transition: all 0.4s ease;
+}
+
+.product-card:hover {
+    box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+    transform: translateY(-4px);
+}
+
+/* Navigation bar luxury style */
+.nav-luxury {
+    background-color: #FAF7F2;
+    border-bottom: 1px solid rgba(184, 150, 46, 0.2);
+}
+
+/* Hero section */
+.hero-luxury {
+    background-color: #F5F0E8;
+}
+
+/* Category pill */
+.category-tag {
+    @apply text-xs uppercase tracking-widest;
+    color: #B8962E;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+}
+
+/* Price styling */
+.price-luxury {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #2C2C2C;
+}
+
+/* Section titles */
+.section-title {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #2C2C2C;
+}
+
+/* Subtle cream backgrounds for sections */
+.bg-cream {
+    background-color: #FAF7F2;
+}
+
+.bg-warm {
+    background-color: #F0EAE0;
+}
+
+/* Link styles */
+a {
+    transition: color 0.2s ease;
+}
+
+/* Gold accent line */
+.accent-line {
+    display: inline-block;
+    width: 30px;
+    height: 1px;
+    background-color: #B8962E;
+    vertical-align: middle;
+    margin: 0 12px;
+}
+
+/* Input styling */
+input, select, textarea {
+    border-radius: 0 !important;
+    border-color: #D4C4A8 !important;
+    background-color: #FFFFFF;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #B8962E !important;
+    box-shadow: 0 0 0 1px #B8962E;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: #FAF7F2;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #B8962E;
+    border-radius: 2px;
+}
+
+/* Image hover overlay */
+.img-overlay {
+    position: relative;
+    overflow: hidden;
+}
+
+.img-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(44, 44, 44, 0.05);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.img-overlay:hover::after {
+    opacity: 1;
+}
+
+/* Notification badge */
+.badge-gold {
+    background-color: #B8962E;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 0.65rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Announcement bar */
+.announcement-bar {
+    background-color: #2C2C2C;
+    color: #FAF7F2;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.5rem;
+    text-align: center;
 }
