@@ -348,5 +348,40 @@ export const products: Product[] = [
       DE: ['18 Karat Weißgold', '1,20 Karat Diamant', 'Diamantbesatz innen und außen'],
       AR: ['ذهب أبيض عيار 18 قيراط', 'ألماس 1.20 قيراط', 'ترصيع الألماس من الداخل والخارج']
     }
+  },
+  {
+        id: '11',
+        name: {
+                TR: 'Püskül Yüzük',
+                EN: 'Fringe Ring',
+                DE: 'Fransen-Ring',
+                AR: 'خاتم الشرابة',
+        },
+        category: {
+                TR: 'Yüzük',
+                EN: 'Ring',
+                DE: 'Ring',
+                AR: 'خاتم',
+        },
+        price: 38500,
+        image: '/images/ring-fringe-1.jpg',
+        images: [
+                '/images/ring-fringe-1.jpg',
+                '/images/ring-fringe-2.jpg',
+                '/images/ring-fringe-3.jpg',
+                '/images/ring-fringe-4.jpg',
+              ],
+        description: {
+                TR: 'Sallanan altın çubuklarıyla büyüleyici tasarım. 14 Ayar altın, modern ve özgün estetik.',
+                EN: 'Mesmerizing design with dangling gold bars. 14K gold, modern and unique aesthetic.',
+                DE: 'Bezauberndes Design mit hängenden Goldstäben. 14 Karat Gold, modernes und einzigartiges Ästhetik.',
+                AR: 'تصميم رائع مع قضبان ذهبية متدلية. ذهب 14 قيراط، جمالية حديثة وفريدة.',
+        },
+        details: {
+                TR: ['14 Ayar Altın', 'Sallanan Çubuk Detayı', 'Ayarlanabilir Beden'],
+                EN: ['14K Gold', 'Dangling Bar Detail', 'Adjustable Size'],
+                DE: ['14 Karat Gold', 'Hängende Stabdetail', 'Verstellbare Größe'],
+                AR: ['ذهب 14 قيراط', 'تفصيل قضيب متدلٍ', 'مقاس قابل للتعديل'],
+        }
   }
 ];
