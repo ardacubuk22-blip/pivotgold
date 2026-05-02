@@ -11,101 +11,101 @@ import { Language, Product } from '../types';
 import { motion } from 'motion/react';
 
 interface HomePageProps {
-    lang: Language;
-    onAddToCart: (product: Product) => void;
-    onViewDetails: (product: Product) => void;
+  lang: Language;
+  onAddToCart: (product: Product) => void;
+  onViewDetails: (product: Product) => void;
 }
 
 export const HomePage: React.FC<HomePageProps> = ({ lang, onAddToCart, onViewDetails }) => {
-    const sectionTitles = {
-          TR: {
-                  bestSellers: 'En Çok Satanlar',
-                  campaign: 'Özel Teklif',
-                  wedding: 'Püskül Yüzük Koleksiyonunda %15 İndirim',
-                  shopNow: 'Şimdi İncele'
-          },
-          EN: {
-                  bestSellers: 'Best Sellers',
-                  campaign: 'Special Offer',
-                  wedding: '15% Off Fringe Ring Collection',
-                  shopNow: 'Shop Now'
-          },
-          DE: {
-                  bestSellers: 'Bestseller',
-                  campaign: 'Sonderangebot',
-                  wedding: '15% Rabatt auf Fransen-Ring Kollektion',
-                  shopNow: 'Jetzt einkaufen'
-          },
-          AR: {
-                  bestSellers: 'الأكثر مبيعاً',
-                  campaign: 'عرض خاص',
-                  wedding: 'خصم 15% على مجموعة خواتم الشرابة',
-                  shopNow: 'تسوق الآن'
-          }
-    };
+  const sectionTitles = {
+    TR: {
+      bestSellers: 'En Çok Satanlar',
+      campaign: 'Özel Teklif',
+      wedding: 'Püskül Yüzük Koleksiyonunda %15 İndirim',
+      shopNow: 'Şimdi İncele'
+    },
+    EN: {
+      bestSellers: 'Best Sellers',
+      campaign: 'Special Offer',
+      wedding: '15% Off Fringe Ring Collection',
+      shopNow: 'Shop Now'
+    },
+    DE: {
+      bestSellers: 'Bestseller',
+      campaign: 'Sonderangebot',
+      wedding: '15% Rabatt auf Fransen-Ring Kollektion',
+      shopNow: 'Jetzt einkaufen'
+    },
+    AR: {
+      bestSellers: 'الأكثر مبيعاً',
+      campaign: 'عرض خاص',
+      wedding: 'خصم 15% على مجموعة خواتم الشرابة',
+      shopNow: 'تسوق الآن'
+    }
+  };
 
-    return (
-          <main>
-                <Hero lang={lang} />
-                <SEOSection lang={lang} />
-                <Categories lang={lang} />
-          
-            {/* Best Sellers Section */}
-                <section className="py-24 bg-white">
-                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                                  <div className="text-center mb-16">
-                                              <h2 className="text-4xl font-serif text-zinc-900 mb-4">
-                                                {sectionTitles[lang].bestSellers}
-                                              </h2>h2>
-                                              <div className="w-20 h-[1px] bg-gold mx-auto"></div>div>
-                                  </div>div>
-                                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
-                                    {products.slice(0, 6).map((product) => (
-                          <ProductCard
-                                            key={product.id}
-                                            product={product}
-                                            lang={lang}
-                                            onAddToCart={onAddToCart}
-                                            onViewDetails={onViewDetails}
-                                          />
-                        ))}
-                                  </div>div>
-                        </div>div>
-                </section>section>
-          
-            {/* Campaign Banner */}
-                <section className="py-20">
-                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                                  <div className="relative h-96 overflow-hidden rounded-sm">
-                                              <img
-                                                              src="/images/ring-diamond-2.jpg"
-                                                              alt="Campaign"
-                                                              className="w-full h-full object-cover object-center"
-                                                            />
-                                              <div className="absolute inset-0 bg-black/30 flex flex-col items-center justify-center text-white text-center p-6">
-                                                            <motion.div
-                                                                              initial={{ opacity: 0, scale: 0.9 }}
-                                                                              whileInView={{ opacity: 1, scale: 1 }}
-                                                                              viewport={{ once: true }}
-                                                                            >
-                                                                            <span className="text-xs uppercase tracking-[0.4em] mb-4 block">
-                                                                              {sectionTitles[lang].campaign}
-                                                                            </span>span>
-                                                                            <h3 className="text-4xl md:text-6xl font-serif mb-8">
-                                                                              {sectionTitles[lang].wedding}
-                                                                            </h3>h3>
-                                                                            <button className="px-12 py-4 bg-white text-zinc-900 font-bold uppercase tracking-widest text-xs hover:bg-gold hover:text-white transition-all">
-                                                                              {sectionTitles[lang].shopNow}
-                                                                            </button>button>
-                                                            </motion.div>motion.div>
-                                              </div>div>
-                                  </div>div>
-                        </div>div>
-                </section>section>
-          
-                <BrandStory lang={lang} />
-                <SocialSection lang={lang} />
-                <Newsletter lang={lang} />
-          </main>main>
-        );
-};</main>
+  return (
+    <main>
+      <Hero lang={lang} />
+      <SEOSection lang={lang} />
+      <Categories lang={lang} />
+
+      {/* Best Sellers Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-serif text-zinc-900 mb-4">
+              {sectionTitles[lang].bestSellers}
+            </h2>
+            <div className="w-20 h-[1px] bg-gold mx-auto"></div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+            {products.slice(0, 6).map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                lang={lang}
+                onAddToCart={onAddToCart}
+                onViewDetails={onViewDetails}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Campaign Banner */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative h-96 overflow-hidden rounded-sm">
+            <img
+              src="/images/ring-diamond-2.jpg"
+              alt="Campaign"
+              className="w-full h-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-black/30 flex flex-col items-center justify-center text-white text-center p-6">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+              >
+                <span className="text-xs uppercase tracking-[0.4em] mb-4 block">
+                  {sectionTitles[lang].campaign}
+                </span>
+                <h3 className="text-4xl md:text-6xl font-serif mb-8">
+                  {sectionTitles[lang].wedding}
+                </h3>
+                <button className="px-12 py-4 bg-white text-zinc-900 font-bold uppercase tracking-widest text-xs hover:bg-gold hover:text-white transition-all">
+                  {sectionTitles[lang].shopNow}
+                </button>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <BrandStory lang={lang} />
+      <SocialSection lang={lang} />
+      <Newsletter lang={lang} />
+    </main>
+  );
+};
