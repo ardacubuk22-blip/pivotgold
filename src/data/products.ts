@@ -3,7 +3,7 @@ import { Product } from '../types';
 export const products: Product[] = [
   {
         id: '1',
-        name: {
+        name: {uhj
                 TR: 'Kırmızı Emaye Püskül Yüzük',
                 EN: 'Red Enamel Fringe Ring',
                 DE: 'Roter Emaille Fransen-Ring',
