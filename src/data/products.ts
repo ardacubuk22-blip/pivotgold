@@ -4,371 +4,20 @@ export const products: Product[] = [
   {
         id: '1',
         name: {
-                TR: 'Pırlanta Tektaş Yüzük',
-                EN: 'Diamond Solitaire Ring',
-                DE: 'Diamant-Solitär-Ring',
-                AR: 'خاتم ألماس سوليتير'
+                TR: 'Kırmızı Emaye Püskül Yüzük',
+                EN: 'Red Enamel Fringe Ring',
+                DE: 'Roter Emaille Fransen-Ring',
+                AR: 'خاتم شرابة بمينا أحمر'
         },
         category: {
                 TR: 'Yüzük',
                 EN: 'Ring',
                 DE: 'Ring',
                 AR: 'خاتم'
-        },
-        price: 45900,
-        image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=800',
-        description: {
-                TR: '18 Ayar Beyaz Altın, 0.50 Karat pırlanta ile zarafetin simgesi.',
-                EN: '18K White Gold, a symbol of elegance with 0.50 carat diamond.',
-                DE: '18 Karat Weißgold, ein Symbol der Eleganz mit 0,50 Karat Diamant.',
-                AR: 'ذهب أبيض عيار 18 قيراط، رمز للأناقة مع ألماس 0.50 قيراط.'
-        },
-        details: {
-                TR: ['18 Ayar Beyaz Altın', '0.50 Karat Pırlanta', 'G Renk, VS1 Berraklık', 'Sertifikalı Ürün'],
-                EN: ['18K White Gold', '0.50 Carat Diamond', 'G Color, VS1 Clarity', 'Certified Product'],
-                DE: ['18 Karat Weißgold', '0,50 Karat Diamant', 'G Farbe, VS1 Reinheit', 'Zertifiziertes Produkt'],
-                AR: ['ذهب أبيض عيار 18 قيراط', 'ألماس 0.50 قيراط', 'لون G، وضوح VS1', 'منتج معتمد']
-        }
-  },
-  {
-        id: '2',
-        name: {
-                TR: 'Altın Baget Kolye',
-                EN: 'Gold Baguette Necklace',
-                DE: 'Goldene Baguette-Halskette',
-                AR: 'قلادة باجيت ذهبية'
-        },
-        category: {
-                TR: 'Kolye',
-                EN: 'Necklace',
-                DE: 'Halskette',
-                AR: 'قلادة'
-        },
-        price: 12400,
-        image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=800',
-        description: {
-                TR: 'Modern ve şık tasarımıyla her anınıza eşlik edecek baget kesim kolye.',
-                EN: 'Baguette cut necklace that will accompany your every moment with its modern and stylish design.',
-                DE: 'Halskette im Baguette-Schliff, die Sie in jedem Moment mit ihrem modernen und stilvollen Design begleitet.',
-                AR: 'قلادة بقصة باجيت سترافقك في كل لحظة بتصميمها العصري والأنيق.'
-        },
-        details: {
-                TR: ['14 Ayar Sarı Altın', 'Baget Kesim Zirkon', '45 cm Zincir Boyu'],
-                EN: ['14K Yellow Gold', 'Baguette Cut Zircon', '45 cm Chain Length'],
-                DE: ['14 Karat Gelbgold', 'Zirkonia im Baguette-Schliff', '45 cm Kettenlänge'],
-                AR: ['ذهب أصفر عيار 14 قيراط', 'زركون بقصة باجيت', 'طول السلسلة 45 سم']
-        }
-  },
-  {
-        id: '3',
-        name: {
-                TR: 'İnci Küpe Seti',
-                EN: 'Pearl Earring Set',
-                DE: 'Perlenohrring-Set',
-                AR: 'طقم أقراط لؤلؤ'
-        },
-        category: {
-                TR: 'Küpe',
-                EN: 'Earring',
-                DE: 'Ohrring',
-                AR: 'أقراط'
-        },
-        price: 8750,
-        image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=800',
-        description: {
-                TR: 'Doğal incilerin eşsiz parlaklığı ile tasarlanmış klasik küpeler.',
-                EN: 'Classic earrings designed with the unique brilliance of natural pearls.',
-                DE: 'Klassische Ohrringe, entworfen mit dem einzigartigen Glanz natürlicher Perlen.',
-                AR: 'أقراط كلاسيكية مصممة ببريق اللؤلؤ الطبيعي الفريد.'
-        },
-        details: {
-                TR: ['Doğal Tatlı Su İncisi', '925 Ayar Gümüş Üzeri Altın Kaplama', 'Antialerjik'],
-                EN: ['Natural Freshwater Pearl', 'Gold Plated over 925 Sterling Silver', 'Antiallergic'],
-                DE: ['Natürliche Süßwasserperle', 'Vergoldet auf 925er Sterlingsilber', 'Antiallergisch'],
-                AR: ['لؤلؤ طبيعي من المياه العذبة', 'مطلي بالذهب فوق فضة إسترليني عيار 925', 'مضاد للحساسية']
-        }
-  },
-  {
-        id: '4',
-        name: {
-                TR: 'Safir Taşlı Bilezik',
-                EN: 'Sapphire Stone Bracelet',
-                DE: 'Saphir-Stein-Armband',
-                AR: 'سوار بحجر الياقوت'
-        },
-        category: {
-                TR: 'Bilezik',
-                EN: 'Bracelet',
-                DE: 'Armband',
-                AR: 'سوار'
-        },
-        price: 28600,
-        image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=800',
-        description: {
-                TR: 'Derin mavi safir taşları ve pırlanta detayları ile göz kamaştıran bilezik.',
-                EN: 'Dazzling bracelet with deep blue sapphire stones and diamond details.',
-                DE: 'Prachtvolles Armband mit tiefblauen Saphiren und Diamantdetails.',
-                AR: 'سوار مبهر بأحجار الياقوت الأزرق العميق وتفاصيل من الألماس.'
-        },
-        details: {
-                TR: ['18 Ayar Beyaz Altın', 'Doğal Safir Taşları', 'Pırlanta Süslemeli'],
-                EN: ['18K White Gold', 'Natural Sapphire Stones', 'Diamond Embellished'],
-                DE: ['18 Karat Weißgold', 'Natürliche Saphire', 'Mit Diamanten besetzt'],
-                AR: ['ذهب أبيض عيار 18 قيراط', 'أحجار ياقوت طبيعية', 'مزين بالألماس']
-        }
-  },
-  {
-        id: '5',
-        name: {
-                TR: 'Minimalist Altın Yüzük',
-                EN: 'Minimalist Gold Ring',
-                DE: 'Minimalistischer Goldring',
-                AR: 'خاتم ذهبي بسيط'
-        },
-        category: {
-                TR: 'Yüzük',
-                EN: 'Ring',
-                DE: 'Ring',
-                AR: 'خاتم'
-        },
-        price: 5200,
-        image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=800',
-        description: {
-                TR: 'Günlük kullanım için ideal, zarif ve ince altın yüzük.',
-                EN: 'Elegant and thin gold ring, ideal for daily use.',
-                DE: 'Eleganter und dünner Goldring, ideal für den täglichen Gebrauch.',
-                AR: 'خاتم ذهبي أنيق ورقيق، مثالي للاستخدام اليومي.'
-        },
-        details: {
-                TR: ['14 Ayar Sarı Altın', 'Minimal Tasarım', 'Hafif ve Konforlu'],
-                EN: ['14K Yellow Gold', 'Minimal Design', 'Light and Comfortable'],
-                DE: ['14 Karat Gelbgold', 'Minimalistisches Design', 'Leicht und komfortabel'],
-                AR: ['ذهب أصفر عيار 14 قيراط', 'تصميم بسيط', 'خفيف ومريح']
-        }
-  },
-  {
-        id: '6',
-        name: {
-                TR: 'Zümrüt Damla Kolye',
-                EN: 'Emerald Drop Necklace',
-                DE: 'Smaragd-Tropfen-Halskette',
-                AR: 'قلادة زمرد على شكل قطرة'
-        },
-        category: {
-                TR: 'Kolye',
-                EN: 'Necklace',
-                DE: 'Halskette',
-                AR: 'قلادة'
-        },
-        price: 34200,
-        image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=800',
-        description: {
-                TR: 'Asaletin rengi yeşil zümrüt ile tasarlanmış damla formlu kolye.',
-                EN: 'Drop-shaped necklace designed with green emerald, the color of nobility.',
-                DE: 'Tropfenförmige Halskette mit grünem Smaragd, der Farbe des Adels.',
-                AR: 'قلادة على شكل قطرة مصممة بالزمرد الأخضر، لون النبلاء.'
-        },
-        details: {
-                TR: ['18 Ayar Sarı Altın', 'Doğal Zümrüt', 'Pırlanta Çerçeveli'],
-                EN: ['18K Yellow Gold', 'Natural Emerald', 'Diamond Framed'],
-                DE: ['18 Karat Gelbgold', 'Natürlicher Smaragd', 'Mit Diamantrahmen'],
-                AR: ['ذهب أصفر عيار 18 قيراط', 'زمرد طبيعي', 'مؤطر بالألماس']
-        }
-  },
-  {
-        id: '7',
-        name: {
-                TR: 'Pırlanta Su Yolu Bileklik',
-                EN: 'Diamond Tennis Bracelet',
-                DE: 'Diamant-Tennisarmband',
-                AR: 'سوار تنس ألماس'
-        },
-        category: {
-                TR: 'Bilezik',
-                EN: 'Bracelet',
-                DE: 'Armband',
-                AR: 'سوار'
-        },
-        price: 68000,
-        image: 'https://images.unsplash.com/photo-1599643477372-97427d897f1c?auto=format&fit=crop&q=80&w=800',
-        description: {
-                TR: 'Sonsuz ışıltı sunan, tam tur pırlantalarla bezeli klasik su yolu bileklik.',
-                EN: 'Classic tennis bracelet adorned with full-circle diamonds, offering eternal sparkle.',
-                DE: 'Klassisches Tennisarmband mit rundum besetzten Diamanten, das ewigen Glanz bietet.',
-                AR: 'سوار تنس كلاسيكي مزين بالألماس الكامل، يوفر بريقاً أبدياً.'
-        },
-        details: {
-                TR: ['18 Ayar Beyaz Altın', '3.00 Karat Pırlanta', 'F-G Renk, VS Berraklık'],
-                EN: ['18K White Gold', '3.00 Carat Diamond', 'F-G Color, VS Clarity'],
-                DE: ['18 Karat Weißgold', '3,00 Karat Diamant', 'F-G Farbe, VS Reinheit'],
-                AR: ['ذهب أبيض عيار 18 قيراط', 'ألماس 3.00 قيراط', 'لون F-G، وضوح VS']
-        }
-  },
-  {
-        id: '8',
-        name: {
-                TR: 'Yakut Taşlı Altın Küpe',
-                EN: 'Ruby Gold Earrings',
-                DE: 'Rubin-Goldohrringe',
-                AR: 'أقراط ذهبية بالياقوت'
-        },
-        category: {
-                TR: 'Küpe',
-                EN: 'Earring',
-                DE: 'Ohrring',
-                AR: 'أقراط'
-        },
-        price: 15600,
-        image: 'https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&q=80&w=800',
-        description: {
-                TR: 'Tutkunun rengi kırmızı yakut taşlarıyla tasarlanmış zarif küpeler.',
-                EN: 'Elegant earrings designed with red ruby stones, the color of passion.',
-                DE: 'Elegante Ohrringe mit roten Rubinen, der Farbe der Leidenschaft.',
-                AR: 'أقراط أنيقة مصممة بأحجار الياقوت الأحمر، لون الشغف.'
-        },
-        details: {
-                TR: ['14 Ayar Sarı Altın', 'Doğal Yakut Taşları', 'Minimalist Tasarım'],
-                EN: ['14K Yellow Gold', 'Natural Ruby Stones', 'Minimalist Design'],
-                DE: ['14 Karat Gelbgold', 'Natürliche Rubine', 'Minimalistisches Design'],
-                AR: ['ذهب أصفر عيار 14 قيراط', 'أحجار ياقوت طبيعية', 'تصميم بسيط']
-        }
-  },
-  {
-        id: '9',
-        name: {
-                TR: 'Zincir Altın Kolye',
-                EN: 'Gold Chain Necklace',
-                DE: 'Goldene Kette',
-                AR: 'سلسلة ذهبية'
-        },
-        category: {
-                TR: 'Kolye',
-                EN: 'Necklace',
-                DE: 'Halskette',
-                AR: 'قلادة'
-        },
-        price: 9200,
-        image: 'https://images.unsplash.com/photo-1611085583191-a3b13b24424a?auto=format&fit=crop&q=80&w=800',
-        description: {
-                TR: 'Her kıyafetle uyum sağlayan, modern ve zamansız altın zincir kolye.',
-                EN: 'Modern and timeless gold chain necklace that complements every outfit.',
-                DE: 'Moderne und zeitlose goldene Kette, die jedes Outfit ergänzt.',
-                AR: 'سلسلة ذهبية عصرية وخالدة تكمل كل إطلالة.'
-        },
-        details: {
-                TR: ['14 Ayar Sarı Altın', 'Hollow Zincir Tasarımı', '60 cm Uzunluk'],
-                EN: ['14K Yellow Gold', 'Hollow Chain Design', '60 cm Length'],
-                DE: ['14 Karat Gelbgold', 'Hohlkettendesign', '60 cm Länge'],
-                AR: ['ذهب أصفر عيار 14 قيراط', 'تصميم سلسلة مجوفة', 'طول 60 سم']
-        }
-  },
-  {
-        id: '10',
-        name: {
-                TR: 'Vintage Safir Yüzük',
-                EN: 'Vintage Sapphire Ring',
-                DE: 'Vintage-Saphir-Ring',
-                AR: 'خاتم ياقوت عتيق'
-        },
-        category: {
-                TR: 'Yüzük',
-                EN: 'Ring',
-                DE: 'Ring',
-                AR: 'خاتم'
-        },
-        price: 22400,
-        image: 'https://images.unsplash.com/photo-1588444839158-440a64efd146?auto=format&fit=crop&q=80&w=800',
-        description: {
-                TR: 'Antika esintili tasarımıyla büyüleyici bir safir ve pırlanta yüzük.',
-                EN: 'A charming sapphire and diamond ring with an antique-inspired design.',
-                DE: 'Ein bezaubernder Saphir- und Diamantring mit antik inspiriertem Design.',
-                AR: 'خاتم ساحر من الياقوت والألماس بتصميم مستوحى من الطراز العتيق.'
-        },
-        details: {
-                TR: ['18 Ayar Beyaz Altın', 'Oval Kesim Safir', 'Pırlanta Halo Detayı'],
-                EN: ['18K White Gold', 'Oval Cut Sapphire', 'Diamond Halo Detail'],
-                DE: ['18 Karat Weißgold', 'Saphir im Ovalschliff', 'Diamant-Halo-Detail'],
-                AR: ['ذهب أبيض عيار 18 قيراط', 'ياقوت بقصة بيضاوية', 'تفاصيل هالة من الألماس']
-        }
-  },
-  {
-        id: '11',
-        name: {
-                TR: 'İnci Gerdanlık',
-                EN: 'Pearl Choker',
-                DE: 'Perlen-Choker',
-                AR: 'عقد لؤلؤ ضيق'
-        },
-        category: {
-                TR: 'Kolye',
-                EN: 'Necklace',
-                DE: 'Halskette',
-                AR: 'قلادة'
-        },
-        price: 18900,
-        image: 'https://images.unsplash.com/photo-1589128777073-263566ae5e4d?auto=format&fit=crop&q=80&w=800',
-        description: {
-                TR: 'Seçkin incilerle hazırlanan, asalet ve zarafet dolu bir gerdanlık.',
-                EN: 'A choker full of nobility and elegance, prepared with distinguished pearls.',
-                DE: 'Ein Choker voller Adel und Eleganz, gefertigt aus erlesenen Perlen.',
-                AR: 'عقد ضيق مليء بالنبلاء والأناقة، معد من لآلئ متميزة.'
-        },
-        details: {
-                TR: ['Akoya İncileri', '14 Ayar Altın Klips', 'El Yapımı'],
-                EN: ['Akoya Pearls', '14K Gold Clasp', 'Handmade'],
-                DE: ['Akoya-Perlen', '14 Karat Goldverschluss', 'Handgefertigt'],
-                AR: ['لآلئ أكويا', 'مشبك ذهب عيار 14 قيراط', 'صناعة يدوية']
-        }
-  },
-  {
-        id: '12',
-        name: {
-                TR: 'Pırlanta Halka Küpe',
-                EN: 'Diamond Hoop Earrings',
-                DE: 'Diamant-Creolen',
-                AR: 'أقراط حلقية مرصعة بالألماس'
-        },
-        category: {
-                TR: 'Küpe',
-                EN: 'Earring',
-                DE: 'Ohrring',
-                AR: 'أقراط'
-        },
-        price: 31200,
-        image: 'https://images.unsplash.com/photo-1598560917505-59a3ad559071?auto=format&fit=crop&q=80&w=800',
-        description: {
-                TR: 'Işıltınızı her açıdan yansıtan, pırlantalı şık halka küpeler.',
-                EN: 'Stylish diamond hoop earrings that reflect your sparkle from every angle.',
-                DE: 'Stilvolle Diamant-Creolen, die Ihren Glanz aus jedem Blickwinkel widerspiegeln.',
-                AR: 'أقراط حلقية أنيقة مرصعة بالألماس تعكس بريقك من كل زاوية.'
-        },
-        details: {
-                TR: ['18 Ayar Beyaz Altın', '1.20 Karat Pırlanta', 'İç ve Dış Pırlanta Dizimi'],
-                EN: ['18K White Gold', '1.20 Carat Diamond', 'Inside and Outside Diamond Setting'],
-                DE: ['18 Karat Weißgold', '1,20 Karat Diamant', 'Diamantbesatz innen und außen'],
-                AR: ['ذهب أبيض عيار 18 قيراط', 'ألماس 1.20 قيراط', 'ترصيع الألماس من الداخل والخارج']
-        }
-  },
-  {
-        id: '13',
-        name: {
-                TR: 'Püskül Yüzük',
-                EN: 'Fringe Ring',
-                DE: 'Fransen-Ring',
-                AR: 'خاتم الشرابة',
-        },
-        category: {
-                TR: 'Yüzük',
-                EN: 'Ring',
-                DE: 'Ring',
-                AR: 'خاتم',
         },
         price: 38500,
-        image: '/images/ring-red-1.jpg',
+        image: '/images/ring-red-4.jpg',
         images: [
-                '/images/ring-green-1.jpg',
-                '/images/ring-green-2.jpg',
-                '/images/ring-green-3.jpg',
                 '/images/ring-red-1.jpg',
                 '/images/ring-red-2.jpg',
                 '/images/ring-red-3.jpg',
@@ -377,22 +26,37 @@ export const products: Product[] = [
                 '/images/ring-red-6.jpg',
                 '/images/ring-red-7.jpg',
                 '/images/ring-red-8.jpg',
-                '/images/ring-red-9.jpg',
-                '/images/ring-red-10.jpg',
-                '/images/ring-red-11.jpg',
-                '/images/ring-red-12.jpg',
-                '/images/ring-red-13.jpg',
-                '/images/ring-red-14.jpg',
-                '/images/ring-red-15.jpg',
-                '/images/ring-red-16.jpg',
-                '/images/ring-red-17.jpg',
-                '/images/ring-red-18.jpg',
-                '/images/ring-red-19.jpg',
-                '/images/ring-red-20.jpg',
-                '/images/ring-red-21.jpg',
-                '/images/ring-red-22.jpg',
-                '/images/ring-red-23.jpg',
-                '/images/ring-red-24.jpg',
+              ],
+        description: {
+                TR: 'Canlı kırmızı emaye çubuklarıyla süslenmiş 14 Ayar altın yüzük. Modern ve özgün tasarımıyla her kıyafete uyum sağlar.',
+                EN: '14K gold ring adorned with vibrant red enamel bars. Its modern and unique design complements every outfit.',
+                DE: '14-Karat-Goldring mit lebhaften roten Emaillestäben. Sein modernes und einzigartiges Design passt zu jedem Outfit.',
+                AR: 'خاتم ذهب عيار 14 قيراط مزين بقضبان مينا حمراء نابضة بالحياة. تصميمه العصري والفريد يناسب كل إطلالة.'
+        },
+        details: {
+                TR: ['14 Ayar Altın', 'Kırmızı Emaye Püskül Detay', 'Ayarlanabilir Beden', 'El İşçiliği'],
+                EN: ['14K Gold', 'Red Enamel Fringe Detail', 'Adjustable Size', 'Handcrafted'],
+                DE: ['14 Karat Gold', 'Rotes Emaille Fransen-Detail', 'Verstellbare Größe', 'Handgefertigt'],
+                AR: ['ذهب عيار 14 قيراط', 'تفاصيل شرابة مينا حمراء', 'مقاس قابل للتعديل', 'صنع يدوي']
+        }
+  },
+  {
+        id: '2',
+        name: {
+                TR: 'Lacivert Emaye Püskül Yüzük',
+                EN: 'Navy Enamel Fringe Ring',
+                DE: 'Marine Emaille Fransen-Ring',
+                AR: 'خاتم شرابة بمينا كحلي'
+        },
+        category: {
+                TR: 'Yüzük',
+                EN: 'Ring',
+                DE: 'Ring',
+                AR: 'خاتم'
+        },
+        price: 38500,
+        image: '/images/ring-blue-1.jpg',
+        images: [
                 '/images/ring-blue-1.jpg',
                 '/images/ring-blue-2.jpg',
                 '/images/ring-blue-3.jpg',
@@ -401,14 +65,71 @@ export const products: Product[] = [
                 '/images/ring-blue-6.jpg',
                 '/images/ring-blue-7.jpg',
                 '/images/ring-blue-8.jpg',
-                '/images/ring-blue-9.jpg',
-                '/images/ring-blue-10.jpg',
-                '/images/ring-blue-11.jpg',
-                '/images/ring-blue-12.jpg',
-                '/images/ring-blue-13.jpg',
-                '/images/ring-blue-14.jpg',
-                '/images/ring-blue-15.jpg',
-                '/images/ring-blue-16.jpg',
+              ],
+        description: {
+                TR: 'Derin lacivert emaye çubuklarıyla tasarlanmış zarif 14 Ayar altın yüzük. Sofistike ve çarpıcı bir kombinasyon.',
+                EN: 'Elegant 14K gold ring designed with deep navy enamel bars. A sophisticated and striking combination.',
+                DE: 'Eleganter 14-Karat-Goldring mit tiefen Marineblau-Emaillestäben. Eine anspruchsvolle und auffällige Kombination.',
+                AR: 'خاتم ذهب عيار 14 قيراط أنيق مصمم بقضبان مينا كحلية عميقة. مزيج راقٍ ولافت للنظر.'
+        },
+        details: {
+                TR: ['14 Ayar Altın', 'Lacivert Emaye Püskül Detay', 'Ayarlanabilir Beden', 'El İşçiliği'],
+                EN: ['14K Gold', 'Navy Enamel Fringe Detail', 'Adjustable Size', 'Handcrafted'],
+                DE: ['14 Karat Gold', 'Marine Emaille Fransen-Detail', 'Verstellbare Größe', 'Handgefertigt'],
+                AR: ['ذهب عيار 14 قيراط', 'تفاصيل شرابة مينا كحلية', 'مقاس قابل للتعديل', 'صنع يدوي']
+        }
+  },
+  {
+        id: '3',
+        name: {
+                TR: 'Yeşil Emaye Püskül Yüzük',
+                EN: 'Green Enamel Fringe Ring',
+                DE: 'Grüner Emaille Fransen-Ring',
+                AR: 'خاتم شرابة بمينا أخضر'
+        },
+        category: {
+                TR: 'Yüzük',
+                EN: 'Ring',
+                DE: 'Ring',
+                AR: 'خاتم'
+        },
+        price: 38500,
+        image: '/images/ring-green-1.jpg',
+        images: [
+                '/images/ring-green-1.jpg',
+                '/images/ring-green-2.jpg',
+                '/images/ring-green-3.jpg',
+              ],
+        description: {
+                TR: 'Canlı zümrüt yeşili emaye çubuklarıyla süslenmiş 14 Ayar altın yüzük. Doğanın tazeliğini parmaklarınıza taşıyın.',
+                EN: '14K gold ring adorned with vibrant emerald green enamel bars. Bring the freshness of nature to your fingers.',
+                DE: '14-Karat-Goldring mit lebhaften smaragdgrünen Emaillestäben. Bringen Sie die Frische der Natur an Ihre Finger.',
+                AR: 'خاتم ذهب عيار 14 قيراط مزين بقضبان مينا خضراء زمردية نابضة. أحضر نضارة الطبيعة إلى أصابعك.'
+        },
+        details: {
+                TR: ['14 Ayar Altın', 'Yeşil Emaye Püskül Detay', 'Ayarlanabilir Beden', 'El İşçiliği'],
+                EN: ['14K Gold', 'Green Enamel Fringe Detail', 'Adjustable Size', 'Handcrafted'],
+                DE: ['14 Karat Gold', 'Grünes Emaille Fransen-Detail', 'Verstellbare Größe', 'Handgefertigt'],
+                AR: ['ذهب عيار 14 قيراط', 'تفاصيل شرابة مينا خضراء', 'مقاس قابل للتعديل', 'صنع يدوي']
+        }
+  },
+  {
+        id: '4',
+        name: {
+                TR: 'Altın Püskül Yüzük',
+                EN: 'Gold Fringe Ring',
+                DE: 'Gold Fransen-Ring',
+                AR: 'خاتم شرابة ذهبي'
+        },
+        category: {
+                TR: 'Yüzük',
+                EN: 'Ring',
+                DE: 'Ring',
+                AR: 'خاتم'
+        },
+        price: 42000,
+        image: '/images/ring-gold-4.jpg',
+        images: [
                 '/images/ring-gold-1.jpg',
                 '/images/ring-gold-2.jpg',
                 '/images/ring-gold-3.jpg',
@@ -417,10 +138,37 @@ export const products: Product[] = [
                 '/images/ring-gold-6.jpg',
                 '/images/ring-gold-7.jpg',
                 '/images/ring-gold-8.jpg',
-                '/images/ring-gold-9.jpg',
-                '/images/ring-gold-10.jpg',
-                '/images/ring-gold-11.jpg',
-                '/images/ring-gold-12.jpg',
+              ],
+        description: {
+                TR: 'Saf altın Püskül çubuklarıyla işlenmiş premium 14 Ayar yüzük. Zamansız zarafetin ve lüksün sembolü.',
+                EN: 'Premium 14K ring crafted with pure gold fringe bars. A symbol of timeless elegance and luxury.',
+                DE: 'Premium 14-Karat-Ring, gefertigt mit reinen Goldfransen. Ein Symbol zeitloser Eleganz und Luxus.',
+                AR: 'خاتم ذهب عيار 14 قيراط مميز مصنوع بقضبان شرابة ذهبية خالصة. رمز الأناقة والفخامة الخالدة.'
+        },
+        details: {
+                TR: ['14 Ayar Altın', 'Altın Püskül Detay', 'Ayarlanabilir Beden', 'El İşçiliği'],
+                EN: ['14K Gold', 'Gold Fringe Detail', 'Adjustable Size', 'Handcrafted'],
+                DE: ['14 Karat Gold', 'Gold Fransen-Detail', 'Verstellbare Größe', 'Handgefertigt'],
+                AR: ['ذهب عيار 14 قيراط', 'تفاصيل شرابة ذهبية', 'مقاس قابل للتعديل', 'صنع يدوي']
+        }
+  },
+  {
+        id: '5',
+        name: {
+                TR: 'Pırlanta Püskül Yüzük',
+                EN: 'Diamond Fringe Ring',
+                DE: 'Diamant Fransen-Ring',
+                AR: 'خاتم شرابة ألماسي'
+        },
+        category: {
+                TR: 'Yüzük',
+                EN: 'Ring',
+                DE: 'Ring',
+                AR: 'خاتم'
+        },
+        price: 68000,
+        image: '/images/ring-diamond-1.jpg',
+        images: [
                 '/images/ring-diamond-1.jpg',
                 '/images/ring-diamond-2.jpg',
                 '/images/ring-diamond-3.jpg',
@@ -429,6 +177,115 @@ export const products: Product[] = [
                 '/images/ring-diamond-6.jpg',
                 '/images/ring-diamond-7.jpg',
                 '/images/ring-diamond-8.jpg',
+              ],
+        description: {
+                TR: 'Pırlanta taşlarıyla kaplanmış lüks püskül çubuklara sahip 14 Ayar altın yüzük. En özel anlara layık benzersiz tasarım.',
+                EN: '14K gold ring with luxury fringe bars encrusted with diamonds. A unique design worthy of the most special moments.',
+                DE: '14-Karat-Goldring mit luxuriösen, mit Diamanten besetzten Fransen. Ein einzigartiges Design für die besonderen Momente.',
+                AR: 'خاتم ذهب عيار 14 قيراط مع قضبان شرابة فاخرة مرصعة بالألماس. تصميم فريد يليق بأكثر اللحظات تميزاً.'
+        },
+        details: {
+                TR: ['14 Ayar Altın', 'Pırlanta Kakmalı Püskül', 'Ayarlanabilir Beden', 'Sertifikalı Pırlanta'],
+                EN: ['14K Gold', 'Diamond-Encrusted Fringe', 'Adjustable Size', 'Certified Diamonds'],
+                DE: ['14 Karat Gold', 'Diamantbesetzte Fransen', 'Verstellbare Größe', 'Zertifizierte Diamanten'],
+                AR: ['ذهب عيار 14 قيراط', 'شرابة مرصعة بالألماس', 'مقاس قابل للتعديل', 'ألماس معتمد']
+        }
+  },
+  {
+        id: '6',
+        name: {
+                TR: 'Kırmızı Emaye Püskül Yüzük - Özel Seri',
+                EN: 'Red Enamel Fringe Ring - Special Edition',
+                DE: 'Roter Emaille Fransen-Ring - Sonderedition',
+                AR: 'خاتم شرابة بمينا أحمر - إصدار خاص'
+        },
+        category: {
+                TR: 'Yüzük',
+                EN: 'Ring',
+                DE: 'Ring',
+                AR: 'خاتم'
+        },
+        price: 41500,
+        image: '/images/ring-red-9.jpg',
+        images: [
+                '/images/ring-red-9.jpg',
+                '/images/ring-red-10.jpg',
+                '/images/ring-red-11.jpg',
+                '/images/ring-red-12.jpg',
+                '/images/ring-red-13.jpg',
+                '/images/ring-red-14.jpg',
+                '/images/ring-red-15.jpg',
+                '/images/ring-red-16.jpg',
+              ],
+        description: {
+                TR: 'Özel seri kırmızı emaye tasarımıyla dikkat çekici bir yüzük. Sınırlı üretim, sonsuz zarafet.',
+                EN: 'An eye-catching ring with a special edition red enamel design. Limited production, endless elegance.',
+                DE: 'Ein auffälliger Ring mit einem Sonderedition roten Emaille-Design. Limitierte Produktion, grenzenlose Eleganz.',
+                AR: 'خاتم لافت للنظر بتصميم مينا حمراء من إصدار خاص. إنتاج محدود، أناقة لا حدود لها.'
+        },
+        details: {
+                TR: ['14 Ayar Altın', 'Özel Seri Kırmızı Emaye', 'Ayarlanabilir Beden', 'Sınırlı Üretim'],
+                EN: ['14K Gold', 'Special Edition Red Enamel', 'Adjustable Size', 'Limited Edition'],
+                DE: ['14 Karat Gold', 'Sonderedition Rotes Emaille', 'Verstellbare Größe', 'Limitierte Auflage'],
+                AR: ['ذهب عيار 14 قيراط', 'مينا حمراء إصدار خاص', 'مقاس قابل للتعديل', 'إصدار محدود']
+        }
+  },
+  {
+        id: '7',
+        name: {
+                TR: 'Lacivert Emaye Püskül Yüzük - Premium',
+                EN: 'Navy Enamel Fringe Ring - Premium',
+                DE: 'Marine Emaille Fransen-Ring - Premium',
+                AR: 'خاتم شرابة بمينا كحلي - بريميوم'
+        },
+        category: {
+                TR: 'Yüzük',
+                EN: 'Ring',
+                DE: 'Ring',
+                AR: 'خاتم'
+        },
+        price: 44000,
+        image: '/images/ring-blue-9.jpg',
+        images: [
+                '/images/ring-blue-9.jpg',
+                '/images/ring-blue-10.jpg',
+                '/images/ring-blue-11.jpg',
+                '/images/ring-blue-12.jpg',
+                '/images/ring-blue-13.jpg',
+                '/images/ring-blue-14.jpg',
+                '/images/ring-blue-15.jpg',
+                '/images/ring-blue-16.jpg',
+              ],
+        description: {
+                TR: 'Premium koleksiyondan derin mavi emaye püskül yüzük. Denizin derinliklerinden ilham alan tasarım.',
+                EN: 'Deep blue enamel fringe ring from the premium collection. A design inspired by the depths of the sea.',
+                DE: 'Tiefblauer Emaille Fransering aus der Premium-Kollektion. Ein Design inspiriert von den Tiefen des Meeres.',
+                AR: 'خاتم شرابة مينا أزرق عميق من المجموعة المميزة. تصميم مستوحى من أعماق البحار.'
+        },
+        details: {
+                TR: ['14 Ayar Altın', 'Premium Lacivert Emaye', 'Ayarlanabilir Beden', 'El İşçiliği'],
+                EN: ['14K Gold', 'Premium Navy Enamel', 'Adjustable Size', 'Handcrafted'],
+                DE: ['14 Karat Gold', 'Premium Marine Emaille', 'Verstellbare Größe', 'Handgefertigt'],
+                AR: ['ذهب عيار 14 قيراط', 'مينا كحلية مميزة', 'مقاس قابل للتعديل', 'صنع يدوي']
+        }
+  },
+  {
+        id: '8',
+        name: {
+                TR: 'Pırlanta Püskül Yüzük - Lüks Seri',
+                EN: 'Diamond Fringe Ring - Luxury Series',
+                DE: 'Diamant Fransen-Ring - Luxusserie',
+                AR: 'خاتم شرابة ألماسي - سلسلة فاخرة'
+        },
+        category: {
+                TR: 'Yüzük',
+                EN: 'Ring',
+                DE: 'Ring',
+                AR: 'خاتم'
+        },
+        price: 75000,
+        image: '/images/ring-diamond-9.jpg',
+        images: [
                 '/images/ring-diamond-9.jpg',
                 '/images/ring-diamond-10.jpg',
                 '/images/ring-diamond-11.jpg',
@@ -438,16 +295,163 @@ export const products: Product[] = [
                 '/images/ring-diamond-15.jpg',
               ],
         description: {
-                TR: 'Sallanan altın çubuklarıyla büyüleyici tasarım. 14 Ayar altın, modern ve özgün estetik.',
-                EN: 'Mesmerizing design with dangling gold bars. 14K gold, modern and unique aesthetic.',
-                DE: 'Bezauberndes Design mit hängenden Goldstäben. 14 Karat Gold, modernes und einzigartiges Ästhetik.',
-                AR: 'تصميم رائع مع قضبان ذهبية متدلية. ذهب 14 قيراط، جمالية حديثة وفريدة.',
+                TR: 'Lüks seri pırlanta püskül yüzük, mükemmelliğin ve zarafetin doruk noktası.',
+                EN: 'Luxury series diamond fringe ring, the pinnacle of perfection and elegance.',
+                DE: 'Luxusserie Diamant-Fransering, der Gipfel der Perfektion und Eleganz.',
+                AR: 'خاتم شرابة ألماسي من السلسلة الفاخرة، قمة الكمال والأناقة.'
         },
         details: {
-                TR: ['14 Ayar Altın', 'Sallanan Çubuk Detayı', 'Ayarlanabilir Beden'],
-                EN: ['14K Gold', 'Dangling Bar Detail', 'Adjustable Size'],
-                DE: ['14 Karat Gold', 'Hängende Stabdetail', 'Verstellbare Größe'],
-                AR: ['ذهب 14 قيراط', 'تفصيل قضيب متدلٍ', 'مقاس قابل للتعديل'],
+                TR: ['14 Ayar Altın', 'Lüks Pırlanta Kakma', 'Ayarlanabilir Beden', 'Sertifikalı Pırlanta'],
+                EN: ['14K Gold', 'Luxury Diamond Inlay', 'Adjustable Size', 'Certified Diamonds'],
+                DE: ['14 Karat Gold', 'Luxus Diamanteinlage', 'Verstellbare Größe', 'Zertifizierte Diamanten'],
+                AR: ['ذهب عيار 14 قيراط', 'تطعيم ألماس فاخر', 'مقاس قابل للتعديل', 'ألماس معتمد']
+        }
+  },
+  {
+        id: '9',
+        name: {
+                TR: 'Altın Püskül Yüzük - Klasik',
+                EN: 'Gold Fringe Ring - Classic',
+                DE: 'Gold Fransen-Ring - Klassisch',
+                AR: 'خاتم شرابة ذهبي - كلاسيكي'
+        },
+        category: {
+                TR: 'Yüzük',
+                EN: 'Ring',
+                DE: 'Ring',
+                AR: 'خاتم'
+        },
+        price: 45000,
+        image: '/images/ring-gold-9.jpg',
+        images: [
+                '/images/ring-gold-9.jpg',
+                '/images/ring-gold-10.jpg',
+                '/images/ring-gold-11.jpg',
+                '/images/ring-gold-12.jpg',
+              ],
+        description: {
+                TR: 'Klasik koleksiyondan saf altın püskül yüzük. Asaletin en sade ifadesi.',
+                EN: 'Pure gold fringe ring from the classic collection. The most refined expression of nobility.',
+                DE: 'Reiner Goldfransen-Ring aus der klassischen Kollektion. Der raffinierteste Ausdruck von Adel.',
+                AR: 'خاتم شرابة ذهب خالص من المجموعة الكلاسيكية. أرقى تعبير عن النبل.'
+        },
+        details: {
+                TR: ['14 Ayar Altın', 'Klasik Altın Püskül', 'Ayarlanabilir Beden', 'El İşçiliği'],
+                EN: ['14K Gold', 'Classic Gold Fringe', 'Adjustable Size', 'Handcrafted'],
+                DE: ['14 Karat Gold', 'Klassische Goldfransen', 'Verstellbare Größe', 'Handgefertigt'],
+                AR: ['ذهب عيار 14 قيراط', 'شرابة ذهبية كلاسيكية', 'مقاس قابل للتعديل', 'صنع يدوي']
+        }
+  },
+  {
+        id: '10',
+        name: {
+                TR: 'Kırmızı Emaye Püskül Yüzük - Koleksiyon',
+                EN: 'Red Enamel Fringe Ring - Collection',
+                DE: 'Roter Emaille Fransen-Ring - Kollektion',
+                AR: 'خاتم شرابة بمينا أحمر - مجموعة'
+        },
+        category: {
+                TR: 'Yüzük',
+                EN: 'Ring',
+                DE: 'Ring',
+                AR: 'خاتم'
+        },
+        price: 39500,
+        image: '/images/ring-red-17.jpg',
+        images: [
+                '/images/ring-red-17.jpg',
+                '/images/ring-red-18.jpg',
+                '/images/ring-red-19.jpg',
+                '/images/ring-red-20.jpg',
+                '/images/ring-red-21.jpg',
+                '/images/ring-red-22.jpg',
+                '/images/ring-red-23.jpg',
+                '/images/ring-red-24.jpg',
+              ],
+        description: {
+                TR: 'Koleksiyon serisinden özenle tasarlanmış kırmızı emaye püskül yüzük.',
+                EN: 'Carefully designed red enamel fringe ring from the collection series.',
+                DE: 'Sorgfältig gestalteter roter Emaille Fransering aus der Kollektion.',
+                AR: 'خاتم شرابة مينا حمراء مصمم بعناية من سلسلة المجموعة.'
+        },
+        details: {
+                TR: ['14 Ayar Altın', 'Koleksiyon Kırmızı Emaye', 'Ayarlanabilir Beden', 'El İşçiliği'],
+                EN: ['14K Gold', 'Collection Red Enamel', 'Adjustable Size', 'Handcrafted'],
+                DE: ['14 Karat Gold', 'Kollektion Rotes Emaille', 'Verstellbare Größe', 'Handgefertigt'],
+                AR: ['ذهب عيار 14 قيراط', 'مينا حمراء من المجموعة', 'مقاس قابل للتعديل', 'صنع يدوي']
+        }
+  },
+  {
+        id: '11',
+        name: {
+                TR: 'Pırlanta Püskül Yüzük - Prestige',
+                EN: 'Diamond Fringe Ring - Prestige',
+                DE: 'Diamant Fransen-Ring - Prestige',
+                AR: 'خاتم شرابة ألماسي - بريستيج'
+        },
+        category: {
+                TR: 'Yüzük',
+                EN: 'Ring',
+                DE: 'Ring',
+                AR: 'خاتم'
+        },
+        price: 72000,
+        image: '/images/ring-diamond-5.jpg',
+        images: [
+                '/images/ring-diamond-1.jpg',
+                '/images/ring-diamond-2.jpg',
+                '/images/ring-diamond-3.jpg',
+                '/images/ring-diamond-4.jpg',
+                '/images/ring-diamond-5.jpg',
+                '/images/ring-diamond-6.jpg',
+              ],
+        description: {
+                TR: 'Prestige koleksiyonundan pırlanta kakmalı püskül yüzük. Lüksün yeni tanımı.',
+                EN: 'Diamond-encrusted fringe ring from the Prestige collection. A new definition of luxury.',
+                DE: 'Diamantbesetzter Fransering aus der Prestige-Kollektion. Eine neue Definition von Luxus.',
+                AR: 'خاتم شرابة مرصع بالألماس من مجموعة بريستيج. تعريف جديد للفخامة.'
+        },
+        details: {
+                TR: ['14 Ayar Altın', 'Prestige Pırlanta Kakma', 'Ayarlanabilir Beden', 'GIA Sertifikalı'],
+                EN: ['14K Gold', 'Prestige Diamond Inlay', 'Adjustable Size', 'GIA Certified'],
+                DE: ['14 Karat Gold', 'Prestige Diamanteinlage', 'Verstellbare Größe', 'GIA-zertifiziert'],
+                AR: ['ذهب عيار 14 قيراط', 'تطعيم ألماس بريستيج', 'مقاس قابل للتعديل', 'معتمد من GIA']
+        }
+  },
+  {
+        id: '12',
+        name: {
+                TR: 'Altın Püskül Yüzük - Signature',
+                EN: 'Gold Fringe Ring - Signature',
+                DE: 'Gold Fransen-Ring - Signature',
+                AR: 'خاتم شرابة ذهبي - سيغنتشر'
+        },
+        category: {
+                TR: 'Yüzük',
+                EN: 'Ring',
+                DE: 'Ring',
+                AR: 'خاتم'
+        },
+        price: 48000,
+        image: '/images/ring-gold-6.jpg',
+        images: [
+                '/images/ring-gold-4.jpg',
+                '/images/ring-gold-5.jpg',
+                '/images/ring-gold-6.jpg',
+                '/images/ring-gold-7.jpg',
+                '/images/ring-gold-8.jpg',
+              ],
+        description: {
+                TR: 'Signature koleksiyonundan eşsiz altın püskül tasarımı. PivotGold imzasının en özel ifadesi.',
+                EN: 'Unique gold fringe design from the Signature collection. The most special PivotGold expression.',
+                DE: 'Einzigartiges Goldfransen-Design aus der Signature-Kollektion. Der besonderste PivotGold-Ausdruck.',
+                AR: 'تصميم شرابة ذهبية فريدة من مجموعة سيغنتشر. أكثر تعبير خاص عن توقيع PivotGold.'
+        },
+        details: {
+                TR: ['14 Ayar Altın', 'Signature Altın Püskül', 'Ayarlanabilir Beden', 'Özel Ambalaj'],
+                EN: ['14K Gold', 'Signature Gold Fringe', 'Adjustable Size', 'Special Packaging'],
+                DE: ['14 Karat Gold', 'Signature Goldfransen', 'Verstellbare Größe', 'Spezialverpackung'],
+                AR: ['ذهب عيار 14 قيراط', 'شرابة ذهبية سيغنتشر', 'مقاس قابل للتعديل', 'تغليف خاص']
         }
   }
   ];
