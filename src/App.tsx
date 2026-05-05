@@ -11,6 +11,7 @@ import { CheckoutPage } from './pages/CheckoutPage';
 import { Language, Product, CartItem } from './types';
 
 export default function App() {
+  // v2
   const [lang, setLang] = useState<Language>('TR');
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
