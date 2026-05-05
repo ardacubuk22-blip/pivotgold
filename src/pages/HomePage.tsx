@@ -78,7 +78,7 @@ export const HomePage: React.FC<HomePageProps> = ({ lang, onAddToCart, onViewDet
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative h-96 overflow-hidden rounded-sm">
             <img
-              src="/images/ring-diamond-2.jpg"
+              src="/pivotgold/images/ring-diamond-2.jpg"
               alt="Campaign"
               className="w-full h-full object-cover object-center"
             />
