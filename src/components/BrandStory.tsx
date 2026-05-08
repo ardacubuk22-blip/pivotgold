@@ -10,26 +10,26 @@ export const BrandStory: React.FC<BrandStoryProps> = ({ lang }) => {
     TR: {
       title: 'Zanaat ve Miras',
       subtitle: '1984\'ten Beri Pivot Gold',
-      text1: 'Pivot Gold, özel tasarım mücevher sanatını geleneksel zanaatkarlıkla modern tasarımı birleştirerek sunar. Her bir parçamız, ustalarımızın ellerinde hayat bulan eşsiz bir hikayedir.',
-      text2: 'Püskül Yüzük koleksiyonumuz, 14 Ayar altın ve özgün emaye detaylarıyla tasarlanmış, kadınlığın gücünü ve zarafetini yansıtan özel bir koleksiyondur. Her renk, farklı bir duyguyu temsil eder.'
+      text1: 'Pivot Gold mücevher sanatını geleneksel zanaatkarlıkla modern tasarımı birleştirerek sunar.',
+      text2: 'Püskül Yüzük koleksiyonumuz, 14 Ayar altın ve özgün emaye detaylarıyla tasarlanmıştır.',
     },
     EN: {
       title: 'Craft and Heritage',
       subtitle: 'Pivot Gold Since 1984',
-      text1: 'Pivot Gold offers the art of jewelry by combining traditional craftsmanship with modern design. Each of our pieces is a unique story brought to life in the hands of our masters.',
-      text2: 'Our Fringe Ring collection, crafted in 14K gold with unique enamel details, reflects the power and elegance of femininity. Each color represents a different emotion.'
+      text1: 'Pivot Gold offers the art of jewelry by combining traditional craftsmanship with modern design.',
+      text2: 'Our Fringe Ring collection, crafted in 14K gold with unique enamel details.',
     },
     DE: {
       title: 'Handwerk und Erbe',
       subtitle: 'Pivot Gold seit 1984',
-      text1: 'Pivot Gold bietet die Kunst des Schmucks durch die Kombination von traditioneller Handwerkskunst mit modernem Design. Jedes unserer Stücke ist eine einzigartige Geschichte, die in den Händen unserer Meister zum Leben erweckt wird.',
-      text2: 'Unsere Fransen-Ring Kollektion, aus 14 Karat Gold mit einzigartigen Emaille-Details gefertigt, spiegelt die Kraft und Eleganz der Weiblichkeit wider. Jede Farbe repräsentiert eine andere Emotion.'
+      text1: 'Pivot Gold bietet Schmuckkunst durch Kombination von traditionellem Handwerk und modernem Design.',
+      text2: 'Unsere Fransen-Ring Kollektion aus 14 Karat Gold mit einzigartigen Emaille-Details.',
     },
     AR: {
       title: 'الحرفة والتراث',
       subtitle: 'بيفوت جولد منذ عام 1984',
-      text1: 'تقدم بيفوت جولد فن المجوهرات من خلال الجمع بين الحرفية التقليدية والتصميم الحديث. كل قطعة من قطعنا هي قصة فريدة تنبض بالحياة بين أيدي أساتذتنا.',
-      text2: 'مجموعة خواتم الشرابة لدينا، المصنوعة من ذهب 14 قيراط مع تفاصيل مينا فريدة، تعكس قوة وأناقة الأنوثة. كل لون يمثل عاطفة مختلفة.'
+      text1: 'تقدم بيفوت جولد فن المجوهرات من خلال الجمع بين الحرفية التقليدية والتصميم الحديث.',
+      text2: 'مجموعة خواتم الشرابة المصنوعة من ذهب 14 قيراط مع تفاصيل مينا فريدة.',
     }
   };
 
@@ -40,7 +40,7 @@ export const BrandStory: React.FC<BrandStoryProps> = ({ lang }) => {
           <div className={`relative ${lang === 'AR' ? 'lg:order-2' : ''}`}>
             <div className="aspect-[4/5] overflow-hidden rounded-sm">
               <img
-                src="/images/ring-gold-2.jpg"
+                src="/pivotgold/images/ring-gold-2.jpg"
                 alt="Craftsmanship"
                 className="w-full h-full object-cover"
               />
@@ -69,7 +69,7 @@ export const BrandStory: React.FC<BrandStoryProps> = ({ lang }) => {
               {content[lang].text2}
             </p>
             <button className="px-10 py-4 border border-gold text-gold font-medium tracking-widest uppercase text-xs hover:bg-gold hover:text-white transition-all">
-              {lang === 'TR' ? 'Hikayemizi Keşfedin' : lang === 'EN' ? 'Discover Our Story' : lang === 'DE' ? 'Entdecken Sie unsere Geschichte' : 'اكتشف قصtنا'}
+              {lang === 'TR' ? 'Hikayemizi Kesfedın' : lang === 'EN' ? 'Discover Our Story' : lang === 'DE' ? 'Unsere Geschichte' : 'اكتشف قصتنا'}
             </button>
           </div>
         </div>
