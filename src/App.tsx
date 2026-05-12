@@ -8,7 +8,7 @@ import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { HomePage } from './pages/HomePage';
 import { CategoryPage } from './pages/CategoryPage';
 import { CheckoutPage } from './pages/CheckoutPage';
-import { Language, Product, CartItem } from './types';
+import { Language, Product, CartItem } from './tyhpes';
 
 export default function App() {
   // v2
@@ -66,7 +66,7 @@ export default function App() {
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <Router basename="/pivotgold">
+    <Router >
       <div
         className={`min-h-screen bg-white selection:bg-gold/30 ${lang === 'AR' ? 'rtl' : 'ltr'}`}
         dir={lang === 'AR' ? 'rtl' : 'ltr'}
