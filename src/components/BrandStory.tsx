@@ -40,7 +40,7 @@ export const BrandStory: React.FC<BrandStoryProps> = ({ lang }) => {
           <div className={`relative ${lang === 'AR' ? 'lg:order-2' : ''}`}>
             <div className="aspect-[4/5] overflow-hidden rounded-sm">
               <img
-                src="/pivotgold/images/ring-gold-2.jpg"
+                src="/images/ring-gold-2.jpg"
                 alt="Craftsmanship"
                 className="w-full h-full object-cover"
               />
