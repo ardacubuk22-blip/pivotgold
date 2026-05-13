@@ -6,11 +6,11 @@ interface HeroProps {
 }
 
 const heroImages = [
-  '/images/ring-diamond-1.jpg',
-  '/images/ring-red-4.jpg',
-  '/images/ring-blue-1.jpg',
-  '/images/ring-gold-4.jpg',
-  '/images/ring-green-1.jpg',
+    '/images/category-ring-2.jpg',
+    '/images/category-ring-4.jpg',
+    '/images/category-ring-5.jpg',
+    '/images/category-ring-7.jpg',
+    '/images/category-ring-9.jpg',
 ];
 
 export const Hero: React.FC<HeroProps> = ({ lang }) => {
