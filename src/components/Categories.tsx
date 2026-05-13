@@ -7,31 +7,31 @@ interface CategoriesProps {
   lang: Language;
 }
 
-export const Categories: React.FC<CategoriesProps> = ({ lang }) => {
+export const Categories: React.FC<CategoriesPropsh> = ({ lang }) => {
   const categories = [
     {
       id: 'rings',
       slug: 'yüzük',
       name: { TR: 'Yüzükler', EN: 'Rings', DE: 'Ringe', AR: 'خواتم' },
-      image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=800'
+            image: '/images/category-ring-1.jpg'
     },
     {
       id: 'necklaces',
       slug: 'kolye',
       name: { TR: 'Kolyeler', EN: 'Necklaces', DE: 'Halsketten', AR: 'قلادات' },
-      image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=800'
+            image: '/images/category-ring-6.jpg'
     },
     {
       id: 'bracelets',
       slug: 'bilezik',
       name: { TR: 'Bilezikler', EN: 'Bracelets', DE: 'Armbänder', AR: 'أساور' },
-      image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=800'
+            image: '/images/category-ring-3.jpg'
     },
     {
       id: 'earrings',
       slug: 'küpe',
       name: { TR: 'Küpeler', EN: 'Earrings', DE: 'Ohrringe', AR: 'أقراط' },
-      image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=800'
+            image: '/images/category-ring-4.jpg'
     }
   ];
 
