@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+İİمجموعةجديدةŞاكتشفÖتصميمخاصŞاكتشفبيفوتجولدŞاكتشفimport React, { useState, useEffect } from 'react';
 import { Language } from '../types';
 
 interface HeroProps {
