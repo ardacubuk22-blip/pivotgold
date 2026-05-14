@@ -1,61 +1,154 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useState } from 'react';
 import { Language, Product } from '../types';
-import { ShoppingCart } from 'lucide-react';
+import { Heart } from 'lucide-react';
 
 interface ProductCardProps {
-  product: Product;
-  lang: Language;
-  onAddToCart: (product: Product) => void;
-  onViewDetails: (product: Product) => void;
+    product: Product;
+    lang: Language;
+    onAddToCart: (product: Product) => void;
+    onViewDetails: (product: Product) => void;
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product, lang, onAddToCart, onViewDetails }) => {
-  const name = product.name[lang] || product.name.TR;
-  const category = product.category[lang] || product.category.TR;
-  const formattedPrice = new Intl.NumberFormat('tr-TR').format(product.price);
+    const [hovered, setHovered] = useState(false);
+    const [wishlisted, setWishlisted] = useState(false);
+    const name = product.name[lang] || product.name.TR;
+    const formattedPrice = new Intl.NumberFormat('tr-TR').format(product.price);
 
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="product-card group cursor-pointer"
-      onClick={() => onViewDetails(product)}
-    >
-      {/* Image container */}
-      <div className="relative overflow-hidden bg-[#F5F0E8]" style={{ aspectRatio: '3/4' }}>
-        <img
-          src={product.image}
-          alt={name}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          style={{ objectPosition: 'center' }}
-        />
-        {/* Hover overlay with add to cart */}
-        <div className="absolute inset-0 bg-[#2C2C2C] bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300 flex items-end justify-center pb-6 opacity-0 group-hover:opacity-100">
-          <button
-            onClick={(e) => { e.stopPropagation(); onAddToCart(product); }}
-            className="flex items-center gap-2 bg-[#FAF7F2] text-[#2C2C2C] px-5 py-2.5 text-xs tracking-widest uppercase font-medium transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300"
-            style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.15em' }}
-          >
-            <ShoppingCart size={13} strokeWidth={1.5} />
-            {lang === 'TR' ? 'Sepete Ekle' : lang === 'EN' ? 'Add to Cart' : lang === 'DE' ? 'In den Warenkorb' : 'أضف للسلة'}
-          </button>
-        </div>
-      </div>
-      {/* Product info */}
-      <div className="pt-4 pb-2 px-1">
-        <p className="category-tag mb-1.5">{category}</p>
-        <h3
-          className="text-[#2C2C2C] mb-2 leading-snug"
-          style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 400, fontSize: '1.05rem', letterSpacing: '0.02em' }}
-        >
-          {name}
-        </h3>
-        <p className="price-luxury">
-          {formattedPrice} <span style={{ fontSize: '0.8rem', color: '#8C7B6B', fontFamily: 'Montserrat', fontWeight: 400 }}>₺</span>
-        </p>
-      </div>
-    </motion.div>
-  );
+    const colorDots = [
+      { color: '#C4956A', label: 'Rose Gold' },
+      { color: '#E8C96A', label: 'Sarı Altın' },
+      { color: '#E8E8E8', label: 'Beyaz Altın' },
+        ];
+
+    return (
+          <div
+                  style={{ cursor: 'pointer', background: 'transparent' }}
+                  onClick={() => onViewDetails(product)}
+                  onMouseEnter={() => setHovered(true)}
+                  onMouseLeave={() => setHovered(false)}
+                >
+            {/* Image container - 3:4 aspect ratio like Kismet */}
+                <div style={{
+                          position: 'relative',
+                          overflow: 'hidden',
+                          backgroundColor: '#F5F3EE',
+                          aspectRatio: '3/4',
+                }}>
+                  {/* Main image */}
+                        <img
+                                    src={product.image}
+                                    alt={name}
+                                    style={{
+                                                  width: '100%',
+                                                  height: '100%',
+                                                  objectFit: 'cover',
+                                                  objectPosition: 'center',
+                                                  display: 'block',
+                                                  position: 'absolute',
+                                                  top: 0, left: 0,
+                                                  opacity: hovered && product.images && product.images[1] ? 0 : 1,
+                                                  transition: 'opacity 0.4s ease',
+                                    }}
+                                  />
+                  {/* Hover image */}
+                  {product.images && product.images[1] && (
+                            <img
+                                          src={product.images[1]}
+                                          alt={name}
+                                          style={{
+                                                          width: '100%',
+                                                          height: '100%',
+                                                          objectFit: 'cover',
+                                                          objectPosition: 'center',
+                                                          display: 'block',
+                                                          position: 'absolute',
+                                                          top: 0, left: 0,
+                                                          opacity: hovered ? 1 : 0,
+                                                          transition: 'opacity 0.4s ease',
+                                          }}
+                                        />
+                          )}
+                  {/* Wishlist button - top right */}
+                        <button
+                                    onClick={e => { e.stopPropagation(); setWishlisted(!wishlisted); }}
+                                    style={{
+                                                  position: 'absolute',
+                                                  top: '10px',
+                                                  right: '10px',
+                                                  background: 'none',
+                                                  border: 'none',
+                                                  cursor: 'pointer',
+                                                  padding: '4px',
+                                                  opacity: hovered || wishlisted ? 1 : 0,
+                                                  transition: 'opacity 0.2s',
+                                                  zIndex: 2,
+                                    }}
+                                    aria-label="Favorilere Ekle"
+                                  >
+                                  <Heart
+                                                size={18}
+                                                strokeWidth={1.5}
+                                                color={wishlisted ? '#B8962E' : '#111111'}
+                                                fill={wishlisted ? '#B8962E' : 'none'}
+                                              />
+                        </button>button>
+                </div>div>
+          
+            {/* Product info - Kismet style */}
+                <div style={{ paddingTop: '12px', paddingBottom: '8px' }}>
+                  {/* Product name */}
+                        <p style={{
+                            fontFamily: '"Jost", sans-serif',
+                            fontSize: '14px',
+                            fontWeight: 400,
+                            color: '#111111',
+                            letterSpacing: '0',
+                            marginBottom: '4px',
+                            lineHeight: '1.4',
+                }}>
+                          {name}
+                        </p>p>
+                  {/* Normal fiyat label */}
+                        <p style={{
+                            fontFamily: '"Jost", sans-serif',
+                            fontSize: '12px',
+                            fontWeight: 300,
+                            color: '#6B6B6B',
+                            marginBottom: '2px',
+                }}>
+                          {lang === 'TR' ? 'Normal fiyat' : lang === 'EN' ? 'Regular price' : lang === 'DE' ? 'Normalpreis' : 'السعر العادي'}
+                        </p>p>
+                  {/* Price */}
+                        <p style={{
+                            fontFamily: '"Jost", sans-serif',
+                            fontSize: '14px',
+                            fontWeight: 300,
+                            color: '#111111',
+                            marginBottom: '8px',
+                }}>
+                          {formattedPrice} ₺
+                        </p>p>
+                  {/* Color dots */}
+                        <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+                          {colorDots.map((dot, i) => (
+                              <div
+                                              key={i}
+                                              title={dot.label}
+                                              style={{
+                                                                width: '14px',
+                                                                height: '14px',
+                                                                borderRadius: '50%',
+                                                                backgroundColor: dot.color,
+                                                                border: '1.5px solid rgba(0,0,0,0.1)',
+                                                                cursor: 'pointer',
+                                                                flexShrink: 0,
+                                              }}
+                                            />
+                            ))}
+                        </div>div>
+                </div>div>
+          </div>div>
+        );
 };
+</div>
