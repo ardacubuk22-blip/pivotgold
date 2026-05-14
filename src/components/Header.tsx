@@ -1,134 +1,216 @@
 import React from 'react';
-import { ShoppingCart, Globe, Menu, X } from 'lucide-react';
+import { ShoppingCart, Search, Menu, X, Heart } from 'lucide-react';
 import { Language } from '../types';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 
 interface HeaderProps {
-    lang: Language;
-    setLang: (lang: Language) => void;
-    cartCount: number;
-    onCartClick: () => void;
+      lang: Language;
+      setLang: (lang: Language) => void;
+      cartCount: number;
+      onCartClick: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ lang, setLang, cartCount, onCartClick }) => {
-    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+      const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-    const menuItems = {
-        TR: ['Yüzük', 'Kolye', 'Bilezik', 'Küpe', 'Pırlanta', 'Etsy'],
-        EN: ['Rings', 'Necklaces', 'Bracelets', 'Earrings', 'Diamonds', 'Etsy'],
-        DE: ['Ringe', 'Halsketten', 'Armbänder', 'Ohrringe', 'Diamanten', 'Etsy'],
-        AR: ['خواتم', 'قلادات', 'أساور', 'أقراط', 'ألماس', 'إتسي'],
-    };
-    const menuRoutes = ['ring', 'necklace', 'bracelet', 'earring', 'diamond', 'etsy'];
-    const items = menuItems[lang] || menuItems.TR;
-    const languages: Language[] = ['TR', 'EN', 'DE', 'AR'];
+      const menuItems = {
+              TR: ['Yeni', 'Kategoriler', 'Koleksiyon', 'Piercing', 'Design House'],
+              EN: ['New', 'Categories', 'Collection', 'Piercing', 'Design House'],
+              DE: ['Neu', 'Kategorien', 'Kollektion', 'Piercing', 'Design House'],
+              AR: ['جديد', 'الفئات', 'المجموعة', 'ثقب', 'بيت التصميم'],
+      };
+      const menuRoutes = ['new', 'categories', 'collection', 'piercing', 'design-house'];
+      const items = menuItems[lang] || menuItems.TR;
 
-    return (
-        <header className="nav-luxury sticky top-0 z-50">
-            {/* Main header */}
-            <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-                {/* Logo */}
-                <Link
-                    to="/"
-                    className="font-serif text-2xl text-[#2C2C2C]"
-                    style={{ fontWeight: 300, letterSpacing: '0.12em', textTransform: 'uppercase' }}
-                >
-                    Pivot<span style={{ color: '#B8962E' }}>Gold</span>
-                </Link>
-
-                {/* Desktop Nav */}
-                <nav className="hidden md:flex items-center gap-8">
-                    {items.slice(0, 5).map((item, i) => (
-                        <Link
-                            key={i}
-                            to={`/category/${menuRoutes[i]}`}
-                            className="text-[#2C2C2C] hover:text-[#B8962E] transition-colors duration-200"
-                            style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '0.72rem', letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 500 }}
-                        >
-                            {item}
-                        </Link>
-                    ))}
-                </nav>
-
-                {/* Right actions */}
-                <div className="flex items-center gap-5">
-                    {/* Language selector */}
-                    <div className="hidden md:flex items-center gap-1">
-                        <Globe size={13} color="#8C7B6B" />
-                        <select
-                            value={lang}
-                            onChange={(e) => setLang(e.target.value as Language)}
-                            className="bg-transparent text-[#8C7B6B] border-none outline-none cursor-pointer"
-                            style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '0.72rem', letterSpacing: '0.1em' }}
-                        >
-                            {languages.map((l) => (
-                                <option key={l} value={l}>{l}</option>
-                            ))}
-                        </select>
-                    </div>
-
-                    {/* Cart */}
-                    <button
-                        onClick={onCartClick}
-                        className="relative flex items-center gap-1 text-[#2C2C2C] hover:text-[#B8962E] transition-colors"
-                    >
-                        <ShoppingCart size={18} strokeWidth={1.5} />
-                        {cartCount > 0 && (
-                            <span className="badge-gold absolute -top-2 -right-2">
-                                {cartCount}
-                            </span>
-                        )}
-                    </button>
-
-                    {/* Mobile menu toggle */}
-                    <button
-                        className="md:hidden text-[#2C2C2C]"
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    >
-                        {isMenuOpen ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
-                    </button>
-                </div>
-            </div>
-
-            {/* Mobile menu */}
-            <AnimatePresence>
-                {isMenuOpen && (
-                    <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: 'easeInOut' }}
-                        className="md:hidden bg-[#FAF7F2] border-t border-[#E8DDD0] overflow-hidden"
-                    >
-                        <div className="px-6 py-6 flex flex-col gap-5">
-                            {items.map((item, i) => (
+      return (
+              <header style={{
+                        backgroundColor: '#FFFFFF',
+                        borderBottom: '1px solid #ECECEC',
+                        height: '56px',
+                        position: 'sticky',
+                        top: 0,
+                        zIndex: 100,
+                        width: '100%',
+              }}>
+                        <div style={{
+                          maxWidth: '100%',
+                          height: '100%',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          padding: '0 24px',
+              }}>
+                            {/* Left: hamburger + search */}
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px', width: '120px' }}>
+                                                  <button
+                                                                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                                                                  style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center' }}
+                                                                  aria-label="Menu"
+                                                                >
+                                                      {isMenuOpen
+                                                                        ? <X size={20} strokeWidth={1.5} color="#111111" />
+                                                                        : <Menu size={20} strokeWidth={1.5} color="#111111" />
+                                                      }
+                                                  </button>button>
+                                              <button style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center' }} aria-label="Search">
+                                                          <Search size={18} strokeWidth={1.5} color="#111111" />
+                                              </button>button>
+                                    </div>div>
+                        
+                            {/* Center: Logo */}
                                 <Link
-                                    key={i}
-                                    to={`/category/${menuRoutes[i]}`}
-                                    className="text-[#2C2C2C] hover:text-[#B8962E] transition-colors"
-                                    style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '0.8rem', letterSpacing: '0.15em', textTransform: 'uppercase' }}
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    {item}
-                                </Link>
-                            ))}
-                            <div className="flex gap-3 pt-3 border-t border-[#E8DDD0]">
-                                {languages.map((l) => (
-                                    <button
-                                        key={l}
-                                        onClick={() => { setLang(l); setIsMenuOpen(false); }}
-                                        className={`text-xs font-medium transition-colors ${lang === l ? 'text-[#B8962E]' : 'text-[#8C7B6B] hover:text-[#B8962E]'}`}
-                                        style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.1em' }}
-                                    >
-                                        {l}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </header>
-    );
+                                              to="/"
+                                              style={{
+                                                              fontFamily: '"Jost", sans-serif',
+                                                              fontWeight: 700,
+                                                              fontSize: '18px',
+                                                              letterSpacing: '0.1em',
+                                                              textTransform: 'uppercase',
+                                                              color: '#111111',
+                                                              textDecoration: 'none',
+                                                              position: 'absolute',
+                                                              left: '50%',
+                                                              transform: 'translateX(-50%)',
+                                              }}
+                                            >
+                                          PIVOT<span style={{ color: '#B8962E' }}>GOLD</span>span>
+                                </Link>Link>
+                        
+                            {/* Right: account, wishlist, cart */}
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '16px', width: '120px', justifyContent: 'flex-end' }}>
+                                    {/* Language */}
+                                          <select
+                                                          value={lang}
+                                                          onChange={(e) => setLang(e.target.value as Language)}
+                                                          style={{
+                                                                            background: 'transparent',
+                                                                            border: 'none',
+                                                                            outline: 'none',
+                                                                            cursor: 'pointer',
+                                                                            fontFamily: '"Jost", sans-serif',
+                                                                            fontSize: '13px',
+                                                                            color: '#111111',
+                                                                            letterSpacing: '0.5px',
+                                                          }}
+                                                        >
+                                              {(['TR','EN','DE','AR'] as Language[]).map(l => (
+                                                                          <option key={l} value={l}>{l}</option>option>
+                                                                        ))}
+                                          </select>select>
+                                          <button style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center' }} aria-label="Wishlist">
+                                                      <Heart size={18} strokeWidth={1.5} color="#111111" />
+                                          </button>button>
+                                          <button
+                                                          onClick={onCartClick}
+                                                          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center', position: 'relative' }}
+                                                          aria-label="Cart"
+                                                        >
+                                                      <ShoppingCart size={18} strokeWidth={1.5} color="#111111" />
+                                              {cartCount > 0 && (
+                                                                          <span style={{
+                                                                                              position: 'absolute',
+                                                                                              top: '-8px',
+                                                                                              right: '-8px',
+                                                                                              background: '#B8962E',
+                                                                                              color: '#FFFFFF',
+                                                                                              borderRadius: '50%',
+                                                                                              width: '16px',
+                                                                                              height: '16px',
+                                                                                              fontSize: '10px',
+                                                                                              display: 'flex',
+                                                                                              alignItems: 'center',
+                                                                                              justifyContent: 'center',
+                                                                                              fontFamily: '"Jost", sans-serif',
+                                                                                              fontWeight: 500,
+                                                                          }}>
+                                                                              {cartCount}
+                                                                          </span>span>
+                                                      )}
+                                          </button>button>
+                                </div>div>
+                        </div>div>
+              
+                  {/* Desktop Nav (below header on hover) - shown in mobile as dropdown */}
+                    <AnimatePresence>
+                        {isMenuOpen && (
+                            <motion.div
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{ height: 'auto', opacity: 1 }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            transition={{ duration: 0.25, ease: 'easeInOut' }}
+                                            style={{
+                                                              backgroundColor: '#FFFFFF',
+                                                              borderTop: '1px solid #ECECEC',
+                                                              borderBottom: '1px solid #ECECEC',
+                                                              overflow: 'hidden',
+                                                              position: 'absolute',
+                                                              top: '56px',
+                                                              left: 0,
+                                                              right: 0,
+                                                              zIndex: 99,
+                                            }}
+                                          >
+                                        <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                                            {items.map((item, i) => (
+                                                              <Link
+                                                                                    key={i}
+                                                                                    to={`/category/${menuRoutes[i]}`}
+                                                                                    onClick={() => setIsMenuOpen(false)}
+                                                                                    style={{
+                                                                                                            fontFamily: '"Jost", sans-serif',
+                                                                                                            fontSize: '14px',
+                                                                                                            fontWeight: 500,
+                                                                                                            letterSpacing: '0.5px',
+                                                                                                            textTransform: 'uppercase',
+                                                                                                            color: '#111111',
+                                                                                                            textDecoration: 'none',
+                                                                                        }}
+                                                                                  >
+                                                                  {item}
+                                                              </Link>Link>
+                                                            ))}
+                                        </div>div>
+                            </motion.div>motion.div>
+                          )}
+                    </AnimatePresence>AnimatePresence>
+              
+                  {/* Desktop horizontal nav */}
+                    <nav style={{
+                          display: 'none',
+                          position: 'absolute',
+                          top: '56px',
+                          left: '50%',
+                          transform: 'translateX(-50%)',
+                          gap: '32px',
+                          zIndex: 99,
+              }}
+                                className="md:!flex"
+                              >
+                        {items.map((item, i) => (
+                                            <Link
+                                                            key={i}
+                                                            to={`/category/${menuRoutes[i]}`}
+                                                            style={{
+                                                                              fontFamily: '"Jost", sans-serif',
+                                                                              fontSize: '14px',
+                                                                              fontWeight: 500,
+                                                                              letterSpacing: '0.5px',
+                                                                              textTransform: 'uppercase',
+                                                                              color: '#111111',
+                                                                              textDecoration: 'none',
+                                                                              padding: '12px 0',
+                                                                              borderBottom: '2px solid transparent',
+                                                                              transition: 'border-color 0.2s',
+                                                            }}
+                                                            onMouseEnter={e => (e.currentTarget.style.borderBottomColor = '#111111')}
+                                                            onMouseLeave={e => (e.currentTarget.style.borderBottomColor = 'transparent')}
+                                                          >
+                                                {item}
+                                            </Link>Link>
+                                          ))}
+                    </nav>nav>
+              </header>header>
+            );
 };
+</button>
