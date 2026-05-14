@@ -1,5 +1,261 @@
 import React from 'react';
 import { Language } from '../types';
+
+interface FooterProps {
+        lang: Language;
+}
+
+interface FooterLink {
+        label: string;
+        href: string;
+}
+
+interface FooterContent {
+        col1Title: string;
+        col1Links: FooterLink[];
+        col2Title: string;
+        col2Links: FooterLink[];
+        col3Title: string;
+        col3Links: FooterLink[];
+        col4Title: string;
+        col4Links: FooterLink[];
+        newsletter: string;
+        newsletterSub: string;
+        emailPlaceholder: string;
+        subscribeBtn: string;
+        rights: string;
+}
+
+const contentTR: FooterContent = {
+        col1Title: 'Pivot Gold',
+        col1Links: [
+              { label: 'Hakkimizda', href: '#' },
+              { label: 'Magazalar', href: '#' },
+              { label: 'Toptan Franchise', href: '#' },
+              { label: 'Iletisim', href: '#' },
+              { label: 'Favoriler', href: '#' },
+                ],
+        col2Title: 'Piercing',
+        col2Links: [
+              { label: 'Tasarimlar', href: '#' },
+              { label: 'Piercing SSS', href: '#' },
+              { label: 'Randevunuzu Planlayin', href: '#' },
+              { label: 'Piercing Bakim Spreyi', href: '#' },
+              { label: 'Piercing Bakim Talimatlari', href: '#' },
+                ],
+        col3Title: 'Musteri Iliskileri',
+        col3Links: [
+              { label: 'Siparis Iade Proseduru', href: '#' },
+              { label: 'Bakim Onarim Proseduru', href: '#' },
+              { label: 'Yuzuk Olcusu Hesaplama', href: '#' },
+              { label: 'Pirlantanin Anatomisi', href: '#' },
+                ],
+        col4Title: 'Yasal',
+        col4Links: [
+              { label: 'Uyelik Sozlesmesi', href: '#' },
+              { label: 'Mesafeli Satis Sozlesmesi', href: '#' },
+              { label: 'Gizlilik ve Cerez Politikasi', href: '#' },
+              { label: 'Aydinlatma Metni', href: '#' },
+              { label: 'Hukum Kosullar', href: '#' },
+                ],
+        newsletter: 'Bulten',
+        newsletterSub: 'Yeni tasarimlardan ilk siz haberdar olun',
+        emailPlaceholder: 'E-postaniz',
+        subscribeBtn: 'Abone ol',
+        rights: '2026 Pivot Gold',
+};
+
+const contentEN: FooterContent = {
+        col1Title: 'Pivot Gold',
+        col1Links: [
+              { label: 'About Us', href: '#' },
+              { label: 'Stores', href: '#' },
+              { label: 'Wholesale Franchise', href: '#' },
+              { label: 'Contact', href: '#' },
+              { label: 'Wishlist', href: '#' },
+                ],
+        col2Title: 'Piercing',
+        col2Links: [
+              { label: 'Designs', href: '#' },
+              { label: 'Piercing FAQ', href: '#' },
+              { label: 'Book Appointment', href: '#' },
+              { label: 'Aftercare Spray', href: '#' },
+              { label: 'Aftercare Instructions', href: '#' },
+                ],
+        col3Title: 'Customer Relations',
+        col3Links: [
+              { label: 'Order Return Policy', href: '#' },
+              { label: 'Repair Care', href: '#' },
+              { label: 'Ring Size Guide', href: '#' },
+              { label: 'Diamond Anatomy', href: '#' },
+                ],
+        col4Title: 'Legal',
+        col4Links: [
+              { label: 'Membership Agreement', href: '#' },
+              { label: 'Distance Sales Agreement', href: '#' },
+              { label: 'Privacy Cookie Policy', href: '#' },
+              { label: 'KVKK', href: '#' },
+              { label: 'Terms Conditions', href: '#' },
+                ],
+        newsletter: 'Newsletter',
+        newsletterSub: 'Be the first to know about new designs',
+        emailPlaceholder: 'Your email',
+        subscribeBtn: 'Subscribe',
+        rights: '2026 Pivot Gold',
+};
+
+function getContent(lang: Language): FooterContent {
+        if (lang === 'EN') return contentEN;
+        return contentTR;
+}
+
+const colStyle: React.CSSProperties = { display: 'flex', flexDirection: 'column', gap: '12px' };
+const titleStyle: React.CSSProperties = {
+        fontFamily: '"Jost", sans-serif',
+        fontSize: '13px',
+        fontWeight: 600,
+        letterSpacing: '0.5px',
+        textTransform: 'uppercase',
+        color: '#FFFFFF',
+        marginBottom: '8px',
+};
+const linkStyle: React.CSSProperties = {
+        fontFamily: '"Jost", sans-serif',
+        fontSize: '13px',
+        fontWeight: 300,
+        color: 'rgba(255,255,255,0.7)',
+        textDecoration: 'none',
+};
+
+function renderCol(title: string, links: FooterLink[]): React.ReactElement {
+        return React.createElement(
+                  'div',
+              { key: title, style: colStyle },
+                  React.createElement('p', { style: titleStyle }, title),
+                  ...links.map(function(l) {
+                              return React.createElement('a', { key: l.label, href: l.href, style: linkStyle }, l.label);
+                  })
+                );
+}
+
+export const Footer: React.FC<FooterProps> = function({ lang }) {
+        const c = getContent(lang);
+        const [email, setEmail] = React.useState('');
+      
+        const handleEmailChange = function(e: React.ChangeEvent<HTMLInputElement>) {
+                  setEmail(e.target.value);
+        };
+      
+        return React.createElement(
+                  'footer',
+              { style: { backgroundColor: '#111111', color: '#FFFFFF' } },
+                  React.createElement(
+                              'div',
+                        {
+                                      style: {
+                                                      padding: '64px 48px 48px',
+                                                      display: 'grid',
+                                                      gridTemplateColumns: '1fr 1fr 1fr 1fr 280px',
+                                                      gap: '40px',
+                                      },
+                        },
+                              renderCol(c.col1Title, c.col1Links),
+                              renderCol(c.col2Title, c.col2Links),
+                              renderCol(c.col3Title, c.col3Links),
+                              renderCol(c.col4Title, c.col4Links),
+                              React.createElement(
+                                            'div',
+                                    { style: colStyle },
+                                            React.createElement('p', { style: titleStyle }, c.newsletter),
+                                            React.createElement('p', {
+                                                            style: {
+                                                                              fontFamily: '"Jost", sans-serif',
+                                                                              fontSize: '13px',
+                                                                              fontWeight: 300,
+                                                                              color: 'rgba(255,255,255,0.7)',
+                                                                              marginBottom: '12px',
+                                                            },
+                                            }, c.newsletterSub),
+                                            React.createElement(
+                                                            'div',
+                                                  { style: { display: 'flex' } },
+                                                            React.createElement('input', {
+                                                                              type: 'email',
+                                                                              value: email,
+                                                                              onChange: handleEmailChange,
+                                                                              placeholder: c.emailPlaceholder,
+                                                                              style: {
+                                                                                                  fontFamily: '"Jost", sans-serif',
+                                                                                                  fontSize: '13px',
+                                                                                                  flex: 1,
+                                                                                                  padding: '10px 12px',
+                                                                                                  background: 'rgba(255,255,255,0.1)',
+                                                                                                  border: '1px solid rgba(255,255,255,0.2)',
+                                                                                                  borderRight: 'none',
+                                                                                                  color: '#FFFFFF',
+                                                                                                  outline: 'none',
+                                                                              },
+                                                            }),
+                                                            React.createElement(
+                                                                              'button',
+                                                                  {
+                                                                                      style: {
+                                                                                                            fontFamily: '"Jost", sans-serif',
+                                                                                                            fontSize: '13px',
+                                                                                                            fontWeight: 500,
+                                                                                                            letterSpacing: '0.5px',
+                                                                                                            textTransform: 'uppercase',
+                                                                                                            background: '#FFFFFF',
+                                                                                                            color: '#111111',
+                                                                                                            border: 'none',
+                                                                                                            padding: '10px 16px',
+                                                                                                            cursor: 'pointer',
+                                                                                            },
+                                                                  },
+                                                                              c.subscribeBtn
+                                                                            )
+                                                          ),
+                                            React.createElement(
+                                                            'div',
+                                                  { style: { display: 'flex', gap: '12px', marginTop: '20px' } },
+                                                            React.createElement('a', { href: 'https://www.instagram.com/pivot_gold', target: '_blank', rel: 'noopener noreferrer', style: { color: 'rgba(255,255,255,0.7)', fontSize: '13px', textDecoration: 'none', fontFamily: '"Jost", sans-serif' } }, 'Instagram'),
+                                                            React.createElement('a', { href: 'https://www.facebook.com/share/1C2qSMzrdM/', target: '_blank', rel: 'noopener noreferrer', style: { color: 'rgba(255,255,255,0.7)', fontSize: '13px', textDecoration: 'none', fontFamily: '"Jost", sans-serif' } }, 'Facebook'),
+                                                            React.createElement('a', { href: 'https://wa.me/905526487383', target: '_blank', rel: 'noopener noreferrer', style: { color: 'rgba(255,255,255,0.7)', fontSize: '13px', textDecoration: 'none', fontFamily: '"Jost", sans-serif' } }, 'WhatsApp'),
+                                                            React.createElement('a', { href: 'https://pivotgold.etsy.com', target: '_blank', rel: 'noopener noreferrer', style: { color: 'rgba(255,255,255,0.7)', fontSize: '13px', textDecoration: 'none', fontFamily: '"Jost", sans-serif' } }, 'Etsy')
+                                                          )
+                                          )
+                            ),
+                  React.createElement(
+                              'div',
+                        {
+                                      style: {
+                                                      borderTop: '1px solid rgba(255,255,255,0.1)',
+                                                      padding: '20px 48px',
+                                                      display: 'flex',
+                                                      justifyContent: 'space-between',
+                                                      alignItems: 'center',
+                                      },
+                        },
+                              React.createElement('p', {
+                                            style: {
+                                                            fontFamily: '"Jost", sans-serif',
+                                                            fontSize: '12px',
+                                                            fontWeight: 300,
+                                                            color: 'rgba(255,255,255,0.5)',
+                                            },
+                              }, '\u00A9 ' + c.rights),
+                              React.createElement(
+                                            'div',
+                                    { style: { display: 'flex', alignItems: 'center', gap: '20px' } },
+                                            React.createElement('img', { src: 'https://cdn.worldvectorlogo.com/logos/visa-10.svg', alt: 'Visa', style: { height: '14px', opacity: 0.4, filter: 'grayscale(1) invert(1)' } }),
+                                            React.createElement('img', { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png', alt: 'Mastercard', style: { height: '20px', opacity: 0.4, filter: 'grayscale(1)' } }),
+                                            React.createElement('img', { src: 'https://cdn.worldvectorlogo.com/logos/paypal-3.svg', alt: 'PayPal', style: { height: '14px', opacity: 0.4, filter: 'grayscale(1) invert(1)' } })
+                                          )
+                            )
+                );
+};
+import React from 'react';
+import { Language } from '../types';
 import { Instagram, Facebook, MessageCircle, ExternalLink } from 'lucide-react';
 
 interface FooterProps {
