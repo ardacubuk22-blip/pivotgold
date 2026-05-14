@@ -1,220 +1,432 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Oswald:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
 @theme {
-    --font-serif: "Cormorant Garamond", serif;
-    --font-sans: "Montserrat", sans-serif;
-    --color-gold: #B8962E;
-    --color-gold-light: #D4AF5A;
-    --color-gold-dark: #8B6914;
-    --color-cream: #FAF7F2;
-    --color-warm-white: #FFFFFF;
-    --color-charcoal: #2C2C2C;
-    --color-taupe: #8C7B6B;
+      --font-sans: "Jost", sans-serif;
+      --font-display: "Oswald", sans-serif;
+      --color-gold: #B8962E;
+      --color-gold-light: #D4AF5A;
+      --color-gold-dark: #8B6914;
+      --color-cream: #FFFFFF;
+      --color-warm-white: #FFFFFF;
+      --color-charcoal: #111111;
+      --color-taupe: #6B6B6B;
+      --color-footer: #111111;
+}
+
+* {
+      box-sizing: border-box;
 }
 
 body {
-    @apply bg-[#FAF7F2] text-[#2C2C2C] font-sans antialiased;
-    letter-spacing: 0.01em;
+      @apply bg-white text-[#111111] antialiased;
+      font-family: "Jost", sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      font-size: 14px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
-    font-weight: 400;
-    letter-spacing: 0.02em;
+      font-family: "Oswald", sans-serif;
+      font-weight: 500;
+      letter-spacing: 0;
 }
 
-/* Kismet-style luxury typography */
-.font-display {
-    font-family: "Cormorant Garamond", serif;
-    font-weight: 300;
-    letter-spacing: 0.08em;
+/* ── HEADER ── */
+.nav-kismet {
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #ECECEC;
+      height: 56px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
 }
 
-/* Gold gradient */
-.gold-gradient {
-    background: linear-gradient(135deg, #B8962E 0%, #D4AF5A 40%, #B8962E 60%, #8B6914 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.nav-kismet .logo {
+      font-family: "Jost", sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #111111;
 }
 
-/* Kismet-style buttons */
-.btn-luxury {
-    @apply inline-block px-8 py-3 text-xs tracking-widest uppercase font-sans font-medium;
-    background-color: transparent;
-    border: 1px solid #B8962E;
-    color: #B8962E;
-    transition: all 0.3s ease;
-    letter-spacing: 0.15em;
+.nav-kismet nav a {
+      font-family: "Jost", sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #111111;
+      transition: color 0.2s;
 }
 
-.btn-luxury:hover {
-    background-color: #B8962E;
-    color: #FAF7F2;
+.nav-kismet nav a:hover {
+      color: #B8962E;
 }
 
-.btn-luxury-filled {
-    @apply inline-block px-8 py-3 text-xs tracking-widest uppercase font-sans font-medium;
-    background-color: #2C2C2C;
-    border: 1px solid #2C2C2C;
-    color: #FAF7F2;
-    transition: all 0.3s ease;
-    letter-spacing: 0.15em;
+/* ── HERO SECTION ── */
+.hero-kismet {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      background: #000;
 }
 
-.btn-luxury-filled:hover {
-    background-color: #B8962E;
-    border-color: #B8962E;
+.hero-kismet .slide-heading {
+      font-family: "Oswald", sans-serif;
+      font-size: 21px;
+      font-weight: 500;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      margin-bottom: 12px;
 }
 
-/* Elegant divider */
-.divider-gold {
-    width: 40px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #B8962E, transparent);
-    margin: 1rem auto;
+.hero-kismet .slide-cta {
+      font-family: "Jost", sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #FFFFFF;
+      text-decoration: none;
+      border-bottom: 1px solid #FFFFFF;
+      padding-bottom: 1px;
+      text-transform: uppercase;
+      transition: opacity 0.2s;
 }
 
-/* Product card Kismet style */
-.product-card {
-    background: #FFFFFF;
-    transition: all 0.4s ease;
+.hero-kismet .slide-cta:hover {
+      opacity: 0.7;
 }
 
-.product-card:hover {
-    box-shadow: 0 8px 40px rgba(0,0,0,0.08);
-    transform: translateY(-4px);
+/* ── CATEGORY STRIP ── */
+.category-strip {
+      background: #FFFFFF;
+      padding: 40px 0;
 }
 
-/* Navigation bar luxury style */
-.nav-luxury {
-    background-color: #FAF7F2;
-    border-bottom: 1px solid rgba(184, 150, 46, 0.2);
+.category-strip .cat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      text-decoration: none;
 }
 
-/* Hero section */
-.hero-luxury {
-    background-color: #F5F0E8;
+.category-strip .cat-item img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      background: #F5F3EE;
 }
 
-/* Category pill */
-.category-tag {
-    @apply text-xs uppercase tracking-widest;
-    color: #B8962E;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    letter-spacing: 0.2em;
+.category-strip .cat-name {
+      font-family: "Oswald", sans-serif;
+      font-size: 24px;
+      font-weight: 500;
+      color: #111111;
+      text-transform: uppercase;
+      letter-spacing: 0;
 }
 
-/* Price styling */
-.price-luxury {
-    font-family: "Cormorant Garamond", serif;
-    font-weight: 500;
-    font-size: 1.1rem;
-    color: #2C2C2C;
+/* ── SECTION HEADING ── */
+.section-heading {
+      font-family: "Oswald", sans-serif;
+      font-size: 21px;
+      font-weight: 500;
+      color: #111111;
+      text-align: center;
+      margin-bottom: 32px;
+      text-transform: uppercase;
 }
 
-/* Section titles */
-.section-title {
-    font-family: "Cormorant Garamond", serif;
-    font-weight: 300;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #2C2C2C;
+/* ── PRODUCT CARD ── */
+.product-card-kismet {
+      background: transparent;
+      cursor: pointer;
 }
 
-/* Subtle cream backgrounds for sections */
-.bg-cream {
-    background-color: #FAF7F2;
+.product-card-kismet .img-wrap {
+      position: relative;
+      overflow: hidden;
+      background: #F5F3EE;
+      aspect-ratio: 3/4;
 }
 
-.bg-warm {
-    background-color: #F0EAE0;
+.product-card-kismet .img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.4s ease;
 }
 
-/* Link styles */
-a {
-    transition: color 0.2s ease;
+.product-card-kismet .img-wrap .img-hover {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.4s ease;
 }
 
-/* Gold accent line */
-.accent-line {
-    display: inline-block;
-    width: 30px;
-    height: 1px;
-    background-color: #B8962E;
-    vertical-align: middle;
-    margin: 0 12px;
+.product-card-kismet:hover .img-wrap .img-hover {
+      opacity: 1;
 }
 
-/* Input styling */
-input, select, textarea {
-    border-radius: 0 !important;
-    border-color: #D4C4A8 !important;
-    background-color: #FFFFFF;
+.product-card-kismet:hover .img-wrap .img-main {
+      opacity: 0;
 }
 
-input:focus, select:focus, textarea:focus {
-    outline: none;
-    border-color: #B8962E !important;
-    box-shadow: 0 0 0 1px #B8962E;
+.product-card-kismet .fav-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.2s;
 }
 
-/* Scrollbar styling */
-::-webkit-scrollbar {
-    width: 4px;
+.product-card-kismet:hover .fav-btn {
+      opacity: 1;
 }
 
-::-webkit-scrollbar-track {
-    background: #FAF7F2;
+.product-card-kismet .card-info {
+      padding-top: 12px;
+      padding-bottom: 8px;
 }
 
-::-webkit-scrollbar-thumb {
-    background: #B8962E;
-    border-radius: 2px;
+.product-card-kismet .card-name {
+      font-family: "Jost", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #111111;
+      letter-spacing: 0;
+      margin-bottom: 4px;
 }
 
-/* Image hover overlay */
-.img-overlay {
-    position: relative;
-    overflow: hidden;
+.product-card-kismet .card-price {
+      font-family: "Jost", sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: #111111;
 }
 
-.img-overlay::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(44, 44, 44, 0.05);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+.product-card-kismet .color-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      display: inline-block;
+      border: 1.5px solid rgba(0,0,0,0.1);
 }
 
-.img-overlay:hover::after {
-    opacity: 1;
+/* ── VIEW ALL BUTTON (Kismet style) ── */
+.btn-view-all {
+      font-family: "Jost", sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #111111;
+      background: none;
+      border: none;
+      border-bottom: 1px solid #111111;
+      padding-bottom: 1px;
+      cursor: pointer;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: opacity 0.2s;
 }
 
-/* Notification badge */
-.badge-gold {
-    background-color: #B8962E;
-    color: white;
-    border-radius: 50%;
-    width: 18px;
-    height: 18px;
-    font-size: 0.65rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.btn-view-all:hover {
+      opacity: 0.6;
 }
 
-/* Announcement bar */
-.announcement-bar {
-    background-color: #2C2C2C;
-    color: #FAF7F2;
-    font-family: "Montserrat", sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    padding: 0.5rem;
-    text-align: center;
+/* ── EDITORIAL BANNERS (2-col) ── */
+.editorial-banner {
+      position: relative;
+      overflow: hidden;
+}
+
+.editorial-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+}
+
+.editorial-banner .banner-text {
+      position: absolute;
+      bottom: 32px;
+      left: 32px;
+}
+
+.editorial-banner .banner-title {
+      font-family: "Oswald", sans-serif;
+      font-size: 21px;
+      font-weight: 500;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+}
+
+/* ── MARQUEE ── */
+.marquee-strip {
+      background: #111111;
+      color: #FFFFFF;
+      font-family: "Jost", sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      padding: 14px 0;
+      overflow: hidden;
+      white-space: nowrap;
+}
+
+.marquee-inner {
+      display: inline-flex;
+      gap: 60px;
+      animation: marquee-scroll 30s linear infinite;
+}
+
+@keyframes marquee-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+}
+
+/* ── FOOTER ── */
+.footer-kismet {
+      background: #111111;
+      color: #FFFFFF;
+}
+
+.footer-kismet h4 {
+      font-family: "Jost", sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      color: #FFFFFF;
+}
+
+.footer-kismet a {
+      font-family: "Jost", sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+}
+
+.footer-kismet a:hover {
+      color: #FFFFFF;
+}
+
+/* ── PRODUCT GRID ── */
+.product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+}
+
+@media (max-width: 1024px) {
+      .product-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-kismet { height: 60vh; }
+}
+
+@media (max-width: 480px) {
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+}
+
+/* ── PRODUCT SLIDER ── */
+.product-slider-wrap {
+      overflow-x: auto;
+      scrollbar-width: none;
+}
+
+.product-slider-wrap::-webkit-scrollbar {
+      display: none;
+}
+
+.product-slider-track {
+      display: flex;
+      gap: 12px;
+      padding-bottom: 4px;
+}
+
+.product-slider-track .product-card-kismet {
+      flex: 0 0 calc(25% - 9px);
+      min-width: 200px;
+}
+
+/* ── SERVICE BLOCKS ── */
+.service-block {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+}
+
+.service-block img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+}
+
+.service-block:hover img {
+      transform: scale(1.03);
+}
+
+.service-block .service-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 24px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.5));
+}
+
+.service-block .service-title {
+      font-family: "Oswald", sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      letter-spacing: 0;
+}
+
+/* ── NEWSLETTER ── */
+.newsletter-input {
+      font-family: "Jost", sans-serif;
+      font-size: 13px;
+      border: 1px solid #ECECEC;
+      padding: 12px 16px;
+      outline: none;
+      background: #FFFFFF;
+      color: #111111;
+      flex: 1;
+}
+
+.newsletter-btn {
+      font-family: "Jost", sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      background: #111111;
+      color: #FFFFFF;
+      border: 1px solid #111111;
+      padding: 12px 20px;
+      cursor: pointer;
+      transition: background 0.2s;
+}
+
+.newsletter-btn:hover {
+      background: #B8962E;
+      border-color: #B8962E;
 }
