@@ -6,72 +6,34 @@ interface BrandStoryProps {
 }
 
 export const BrandStory: React.FC<BrandStoryProps> = ({ lang }) => {
-  const content = {
-    TR: {
-      title: 'Zanaat ve Miras',
-      subtitle: '1984\'ten Beri Pivot Gold',
-      text1: 'Pivot Gold mücevher sanatını geleneksel zanaatkarlıkla modern tasarımı birleştirerek sunar.',
-      text2: 'Püskül Yüzük koleksiyonumuz, 14 Ayar altın ve özgün emaye detaylarıyla tasarlanmıştır.',
-    },
-    EN: {
-      title: 'Craft and Heritage',
-      subtitle: 'Pivot Gold Since 1984',
-      text1: 'Pivot Gold offers the art of jewelry by combining traditional craftsmanship with modern design.',
-      text2: 'Our Fringe Ring collection, crafted in 14K gold with unique enamel details.',
-    },
-    DE: {
-      title: 'Handwerk und Erbe',
-      subtitle: 'Pivot Gold seit 1984',
-      text1: 'Pivot Gold bietet Schmuckkunst durch Kombination von traditionellem Handwerk und modernem Design.',
-      text2: 'Unsere Fransen-Ring Kollektion aus 14 Karat Gold mit einzigartigen Emaille-Details.',
-    },
-    AR: {
-      title: 'الحرفة والتراث',
-      subtitle: 'بيفوت جولد منذ عام 1984',
-      text1: 'تقدم بيفوت جولد فن المجوهرات من خلال الجمع بين الحرفية التقليدية والتصميم الحديث.',
-      text2: 'مجموعة خواتم الشرابة المصنوعة من ذهب 14 قيراط مع تفاصيل مينا فريدة.',
-    }
+  const content: Record<Language, { tag: string; title: string; text1: string; text2: string; cta: string }> = {
+    TR: { tag: "1984'TEN BERİ", title: 'ZANAAT VE MİRAS', text1: 'Pivot Gold mücevher sanatını geleneksel zanaatkarlıkla modern tasarımı birleştirerek sunar.', text2: 'Püskül Yüzük koleksiyonumuz, 14 Ayar altın ve özgün emaye detaylarıyla tasarlanmıştır.', cta: 'HİKAYEMİZİ KEŞFET' },
+    EN: { tag: 'SINCE 1984', title: 'CRAFT AND HERITAGE', text1: 'Pivot Gold offers the art of jewelry by combining traditional craftsmanship with modern design.', text2: 'Our Fringe Ring collection, crafted in 14K gold with unique enamel details.', cta: 'DISCOVER OUR STORY' },
+    DE: { tag: 'SEIT 1984', title: 'HANDWERK UND ERBE', text1: 'Pivot Gold bietet Schmuckkunst durch Kombination von traditionellem Handwerk und modernem Design.', text2: 'Unsere Fransen-Ring Kollektion aus 14 Karat Gold mit einzigartigen Emaille-Details.', cta: 'UNSERE GESCHICHTE' },
+    AR: { tag: 'منذ 1984', title: 'الحرفة والتراث', text1: 'تقدم بيفوت جولد فن المجوهرات من خلال الجمع بين الحرفية التقليدية والتصميم الحديث.', text2: 'مجموعة خواتم الشرابة المصنوعة من ذهب 14 قيراط مع تفاصيل مينا فريدة.', cta: 'اكتشف قصتنا' },
   };
-
+  const c = content[lang] || content.TR;
+  const isRTL = lang === 'AR';
+  const expLabel = lang === 'TR' ? 'Yıllık Tecrübe' : lang === 'EN' ? 'Years of Experience' : lang === 'DE' ? 'Jahre Erfahrung' : 'سنوات من الخبرة';
   return (
-    <section className="py-24 bg-zinc-50 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${lang === 'AR' ? 'text-right' : ''}`}>
-          <div className={`relative ${lang === 'AR' ? 'lg:order-2' : ''}`}>
-            <div className="aspect-[4/5] overflow-hidden rounded-sm">
-              <img
-                src="/images/ring-gold-2.jpg"
-                alt="Craftsmanship"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className={`absolute -bottom-8 bg-white p-8 shadow-xl hidden md:block ${lang === 'AR' ? '-left-8' : '-right-8'}`}>
-              <p className="text-gold font-serif italic text-4xl">40+</p>
-              <p className="text-[10px] uppercase tracking-widest text-zinc-400">
-                {lang === 'TR' ? 'Yıllık Tecrübe' : lang === 'EN' ? 'Years of Experience' : lang === 'DE' ? 'Jahre Erfahrung' : 'سنوات من الخبرة'}
-              </p>
-            </div>
+    <section style={{ backgroundColor: '#FFFFFF', padding: '80px 0', borderTop: '1px solid #ECECEC' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 48px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center', direction: isRTL ? 'rtl' : 'ltr' }}>
+        <div style={{ position: 'relative' }}>
+          <div style={{ aspectRatio: '4/5', overflow: 'hidden', backgroundColor: '#F5F3EE' }}>
+            <img src='/images/ring-gold-2.jpg' alt='Craftsmanship' style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
           </div>
-          <div className="space-y-8">
-            <div>
-              <span className="text-gold font-medium tracking-[0.3em] uppercase text-xs mb-4 block">
-                {content[lang].subtitle}
-              </span>
-              <h2 className="text-5xl font-serif text-zinc-900 mb-6">
-                {content[lang].title}
-              </h2>
-              <div className={`w-20 h-[1px] bg-gold mb-8 ${lang === 'AR' ? 'ml-auto' : ''}`}></div>
-            </div>
-            <p className="text-zinc-600 font-light leading-relaxed text-lg">
-              {content[lang].text1}
-            </p>
-            <p className="text-zinc-600 font-light leading-relaxed text-lg">
-              {content[lang].text2}
-            </p>
-            <button className="px-10 py-4 border border-gold text-gold font-medium tracking-widest uppercase text-xs hover:bg-gold hover:text-white transition-all">
-              {lang === 'TR' ? 'Hikayemizi Kesfedın' : lang === 'EN' ? 'Discover Our Story' : lang === 'DE' ? 'Unsere Geschichte' : 'اكتشف قصتنا'}
-            </button>
+          <div style={{ position: 'absolute', bottom: '-24px', right: isRTL ? 'auto' : '-24px', left: isRTL ? '-24px' : 'auto', backgroundColor: '#111111', padding: '24px 32px' }}>
+            <p style={{ fontFamily: '"Oswald", sans-serif', fontSize: '36px', fontWeight: 500, color: '#B8962E', lineHeight: 1, margin: 0 }}>40+</p>
+            <p style={{ fontFamily: '"Jost", sans-serif', fontSize: '11px', fontWeight: 400, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', marginTop: '4px', marginBottom: 0 }}>{expLabel}</p>
           </div>
+        </div>
+        <div>
+          <p style={{ fontFamily: '"Jost", sans-serif', fontSize: '12px', fontWeight: 500, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#B8962E', marginBottom: '16px' }}>{c.tag}</p>
+          <h2 style={{ fontFamily: '"Oswald", sans-serif', fontSize: '40px', fontWeight: 500, color: '#111111', textTransform: 'uppercase', letterSpacing: '0', marginBottom: '24px', lineHeight: '1.1' }}>{c.title}</h2>
+          <div style={{ width: '40px', height: '1px', backgroundColor: '#B8962E', marginBottom: '32px' }} />
+          <p style={{ fontFamily: '"Jost", sans-serif', fontSize: '15px', fontWeight: 300, color: '#6B6B6B', lineHeight: '1.8', marginBottom: '16px' }}>{c.text1}</p>
+          <p style={{ fontFamily: '"Jost", sans-serif', fontSize: '15px', fontWeight: 300, color: '#6B6B6B', lineHeight: '1.8', marginBottom: '40px' }}>{c.text2}</p>
+          <a href='#' style={{ fontFamily: '"Jost", sans-serif', fontSize: '13px', fontWeight: 500, letterSpacing: '0.5px', color: '#111111', textDecoration: 'none', borderBottom: '1px solid #111111', paddingBottom: '2px', textTransform: 'uppercase' }}>{c.cta}</a>
         </div>
       </div>
     </section>
