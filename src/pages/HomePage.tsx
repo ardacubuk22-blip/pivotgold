@@ -90,31 +90,31 @@ export const HomePage: React.FC<HomePageProps> = ({ lang, onAddToCart, onViewDet
                   {/* 3. PRODUCT SLIDER - BEST SELLERS */}
                         <section style={{ padding: '48px 0 32px', backgroundColor: '#FFFFFF' }}>
                                     <div style={{ padding: '0 24px', marginBottom: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                                                  <h2 style={sectionTitleStyle}>{T.bestSellers[lang]}</h2>h2>
+                                                  <h2 style={sectionTitleStyle}>{T.bestSellers[lang]}</h2>
                                                   <div style={{ display: 'flex', gap: '8px' }}>
                                                                   <button onClick={() => scroll(sliderRef1, 'left')} style={sliderBtnStyle}>
                                                                       {React.createElement(ChevronLeft, { size: 16, strokeWidth: 1.5 })}
-                                                                  </button>button>
+                                                                  </button>
                                                                   <button onClick={() => scroll(sliderRef1, 'right')} style={sliderBtnStyle}>
                                                                       {React.createElement(ChevronRight, { size: 16, strokeWidth: 1.5 })}
-                                                                  </button>button>
-                                                  </div>div>
-                                    </div>div>
+                                                                  </button>
+                                                  </div>
+                                    </div>
                                     <div ref={sliderRef1} style={{ overflowX: 'auto', scrollbarWidth: 'none', padding: '0 24px' }}>
                                                   <div style={{ display: 'flex', gap: '12px', width: 'max-content' }}>
                                                       {products.slice(0, 8).map(product => (
                                 <div key={product.id} style={{ width: '220px', flexShrink: 0 }}>
                                                     <ProductCard product={product} lang={lang} onAddToCart={onAddToCart} onViewDetails={onViewDetails} />
-                                </div>div>
+                                </div>
                               ))}
-                                                  </div>div>
-                                    </div>div>
+                                                  </div>
+                                    </div>
                                     <div style={{ textAlign: 'center', marginTop: '32px' }}>
                                                   <button onClick={() => { window.location.href = '/category/ring'; }} style={viewAllBtnStyle}>
                                                       {T.viewAll[lang]}
-                                                  </button>button>
-                                    </div>div>
-                        </section>section>
+                                                  </button>
+                                    </div>
+                        </section>
 
                   {/* 4. EDITORIAL BANNERS */}
                         <section>
@@ -131,12 +131,12 @@ export const HomePage: React.FC<HomePageProps> = ({ lang, onAddToCart, onViewDet
                                                       <div style={{ position: 'absolute', bottom: '32px', left: '32px' }}>
                                                                     <h3 style={{ fontFamily: '"Oswald", sans-serif', fontSize: '21px', fontWeight: 500, color: '#FFFFFF', textTransform: 'uppercase', marginBottom: '8px' }}>
                                                                         {T.col1[lang]}
-                                                                    </h3>h3>
+                                                                    </h3>
                                                                     <a href="/category/new" style={{ fontFamily: '"Jost", sans-serif', fontSize: '13px', fontWeight: 500, color: '#FFFFFF', textDecoration: 'none', borderBottom: '1px solid #FFFFFF', paddingBottom: '1px', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
                                                                         {T.discover[lang]}
-                                                                    </a>a>
-                                                      </div>div>
-                                          </div>div>
+                                                                    </a>
+                                                      </div>
+                                          </div>
                                           <div style={{ position: 'relative', overflow: 'hidden', height: '480px' }}>
                                                       <img
                                                                         src="/images/category-ring-9.jpg"
@@ -149,43 +149,43 @@ export const HomePage: React.FC<HomePageProps> = ({ lang, onAddToCart, onViewDet
                                                       <div style={{ position: 'absolute', bottom: '32px', left: '32px' }}>
                                                                     <h3 style={{ fontFamily: '"Oswald", sans-serif', fontSize: '21px', fontWeight: 500, color: '#FFFFFF', textTransform: 'uppercase', marginBottom: '8px' }}>
                                                                         {T.col2[lang]}
-                                                                    </h3>h3>
+                                                                    </h3>
                                                                     <a href="/category/collection" style={{ fontFamily: '"Jost", sans-serif', fontSize: '13px', fontWeight: 500, color: '#FFFFFF', textDecoration: 'none', borderBottom: '1px solid #FFFFFF', paddingBottom: '1px', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
                                                                         {T.discover[lang]}
-                                                                    </a>a>
-                                                      </div>div>
-                                          </div>div>
-                                </div>div>
-                        </section>section>
+                                                                    </a>
+                                                      </div>
+                                          </div>
+                                </div>
+                        </section>
               
                   {/* 5. PRODUCT SLIDER - ICONS */}
                     <section style={{ padding: '48px 0 32px', backgroundColor: '#FFFFFF' }}>
                             <div style={{ padding: '0 24px', marginBottom: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                                      <h2 style={sectionTitleStyle}>{T.icons[lang]}</h2>h2>
+                                      <h2 style={sectionTitleStyle}>{T.icons[lang]}</h2>
                                       <div style={{ display: 'flex', gap: '8px' }}>
                                                   <button onClick={() => scroll(sliderRef2, 'left')} style={sliderBtnStyle}>
                                                       {React.createElement(ChevronLeft, { size: 16, strokeWidth: 1.5 })}
-                                                  </button>button>
+                                                  </button>
                                                   <button onClick={() => scroll(sliderRef2, 'right')} style={sliderBtnStyle}>
                                                       {React.createElement(ChevronRight, { size: 16, strokeWidth: 1.5 })}
-                                                  </button>button>
-                                      </div>div>
-                            </div>div>
+                                                  </button>
+                                      </div>
+                            </div>
                             <div ref={sliderRef2} style={{ overflowX: 'auto', scrollbarWidth: 'none', padding: '0 24px' }}>
                                       <div style={{ display: 'flex', gap: '12px', width: 'max-content' }}>
                                           {products.slice(4, 12).map(product => (
                                 <div key={product.id} style={{ width: '220px', flexShrink: 0 }}>
                                                 <ProductCard product={product} lang={lang} onAddToCart={onAddToCart} onViewDetails={onViewDetails} />
-                                </div>div>
+                                </div>
                               ))}
-                                      </div>div>
-                            </div>div>
+                                      </div>
+                            </div>
                             <div style={{ textAlign: 'center', marginTop: '32px' }}>
                                       <button onClick={() => { window.location.href = '/category/ring'; }} style={viewAllBtnStyle}>
                                           {T.viewAll[lang]}
-                                      </button>button>
-                            </div>div>
-                    </section>section>
+                                      </button>
+                            </div>
+                    </section>
               
                   {/* 6. SERVICE BLOCKS */}
                     <section>
@@ -207,12 +207,12 @@ export const HomePage: React.FC<HomePageProps> = ({ lang, onAddToCart, onViewDet
                                                           <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '24px', background: 'linear-gradient(transparent, rgba(0,0,0,0.5))' }}>
                                                                           <p style={{ fontFamily: '"Oswald", sans-serif', fontSize: '18px', fontWeight: 500, color: '#FFFFFF', textTransform: 'uppercase' }}>
                                                                               {block.title}
-                                                                          </p>p>
-                                                          </div>div>
-                                            </a>a>
+                                                                          </p>
+                                                          </div>
+                                            </a>
                                           ))}
-                            </div>div>
-                    </section>section>
+                            </div>
+                    </section>
               
                   {/* 7. MARQUEE */}
                     <div style={{ backgroundColor: '#111111', padding: '14px 0', overflow: 'hidden', whiteSpace: 'nowrap' }}>
@@ -220,17 +220,17 @@ export const HomePage: React.FC<HomePageProps> = ({ lang, onAddToCart, onViewDet
                                 {[0, 1].map(i => (
                               <span key={i} style={{ fontFamily: '"Jost", sans-serif', fontSize: '13px', fontWeight: 400, color: '#FFFFFF', letterSpacing: '1px' }}>
                                   {marqueeText}
-                              </span>span>
+                              </span>
                             ))}
-                            </div>div>
-                    </div>div>
+                            </div>
+                    </div>
               
                   {/* 8. NEWSLETTER */}
                     
         {/* 8.5. BRAND STORY */}
         <BrandStory lang={lang} />
 <Newsletter lang={lang} />
-              </main>main>
+              </main>
             );
 };
 </section>
