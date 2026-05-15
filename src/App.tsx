@@ -8,7 +8,7 @@ import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { HomePage } from './pages/HomePage';
 import { CategoryPage } from './pages/CategoryPage';
 import { CheckoutPage } from './pages/CheckoutPage';
-import { Language, Product, CartItem } from './tyhpes';
+import { Language, Product, CartItem } from './types';
 
 export default function App() {
   // v2
