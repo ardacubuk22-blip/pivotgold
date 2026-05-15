@@ -6,6 +6,7 @@ import { Newsletter } from '../components/Newsletter';
 import { products } from '../data/products';
 import { Language, Product } from '../types';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { BrandStory } from '../components/BrandStory';
 
 interface HomePageProps {
       lang: Language;
@@ -225,7 +226,10 @@ export const HomePage: React.FC<HomePageProps> = ({ lang, onAddToCart, onViewDet
                     </div>div>
               
                   {/* 8. NEWSLETTER */}
-                    <Newsletter lang={lang} />
+                    
+        {/* 8.5. BRAND STORY */}
+        <BrandStory lang={lang} />
+<Newsletter lang={lang} />
               </main>main>
             );
 };
