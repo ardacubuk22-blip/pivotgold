@@ -233,4 +233,3 @@ export const HomePage: React.FC<HomePageProps> = ({ lang, onAddToCart, onViewDet
               </main>
             );
 };
-</section>
