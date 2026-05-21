@@ -1,0 +1,16 @@
+# Pivot Gold - robots.txt
+# https://pivotgold.tr
+
+User-agent: *
+Allow: /
+
+# Disallow build/system files
+Disallow: /assets/
+Disallow: /*.json$
+Disallow: /kismet-test.html
+
+# Sitemap
+Sitemap: https://pivotgold.tr/sitemap.xml
+
+# Crawl-delay (optional, polite)
+Crawl-delay: 1
