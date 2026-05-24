@@ -1,218 +1,214 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
 import { Language, Product } from '../types';
-import { X, ShieldCheck, Truck, RotateCcw, CreditCard, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ShieldCheck, Truck, RotateCcw } from 'lucide-react';
 
 interface ProductDetailProps {
-  product: Product | null;
-  lang: Language;
-  onClose: () => void;
-  onAddToCart: (product: Product) => void;
+    product: Product | null;
+    lang: Language;
+    onClose: () => void;
+    onAddToCart: (product: Product) => void;
 }
 
 export const ProductDetail: React.FC<ProductDetailProps> = ({ product, lang, onClose, onAddToCart }) => {
-  const [activeImage, setActiveImage] = useState(0);
+    const [activeImage, setActiveImage] = useState(0);
+    const [selectedColor, setSelectedColor] = useState(0);
 
-  if (!product) return null;
+    if (!product) return null;
 
-  const images = product.images && product.images.length > 0 ? product.images : [product.image];
+    const images = product.images && product.images.length > 0 ? product.images : [product.image];
 
-  const prevImage = () => setActiveImage((prev) => (prev - 1 + images.length) % images.length);
-  const nextImage = () => setActiveImage((prev) => (prev + 1) % images.length);
+    const labels: Record<Language, {
+          addToCart: string; description: string; details: string;
+          shipping: string; ret: string; warranty: string;
+    }> = {
+          TR: { addToCart: 'Sepete Ekle', description: 'Açıklama', details: 'Ürün Özellikleri', shipping: 'Ücretsiz Sigortalı Kargo', ret: '14 Gün İçinde İade', warranty: 'Ömür Boyu Bakım Garantisi' },
+          EN: { addToCart: 'Add to Cart', description: 'Description', details: 'Product Details', shipping: 'Free Insured Shipping', ret: '14 Days Return', warranty: 'Lifetime Maintenance Warranty' },
+          DE: { addToCart: 'In den Warenkorb', description: 'Beschreibung', details: 'Produktdetails', shipping: 'Kostenloser versicherter Versand', ret: '14 Tage Rückgaberecht', warranty: 'Lebenslange Wartungsgarantie' },
+          AR: { addToCart: 'أضف إلى السلة', description: 'الوصف', details: 'تفاصيل المنتج', shipping: 'شحن مؤمن مجاني', ret: 'إرجاع خلال 14 يوماً', warranty: 'ضمان صيانة مدى الحياة' },
+    };
 
-  const labels = {
-    TR: {
-      addToCart: 'Sepete Ekle',
-      description: 'Açıklama',
-      details: 'Ürün Özellikleri',
-      installments: 'Taksit Seçenekleri',
-      installmentText: 'Kredi kartına 12 aya varan taksit imkanı.',
-      shipping: 'Ücretsiz Sigortalı Kargo',
-      return: '14 Gün İçinde İade',
-      warranty: 'Ömür Boyu Bakım Garantisi'
-    },
-    EN: {
-      addToCart: 'Add to Cart',
-      description: 'Description',
-      details: 'Product Details',
-      installments: 'Installment Options',
-      installmentText: 'Up to 12 months installment on credit cards.',
-      shipping: 'Free Insured Shipping',
-      return: '14 Days Return',
-      warranty: 'Lifetime Maintenance Warranty'
-    },
-    DE: {
-      addToCart: 'In den Warenkorb',
-      description: 'Beschreibung',
-      details: 'Produktdetails',
-      installments: 'Ratenzahlungsoptionen',
-      installmentText: 'Bis zu 12 Monatsraten auf Kreditkarten.',
-      shipping: 'Kostenloser versicherter Versand',
-      return: '14 Tage Rückgaberecht',
-      warranty: 'Lebenslange Wartungsgarantie'
-    },
-    AR: {
-      addToCart: 'أضف إلى السلة',
-      description: 'الوصف',
-      details: 'تفاصيل المنتج',
-      installments: 'خيارات التقسيط',
-      installmentText: 'تقسيط يصل إلى 12 شهراً على البطاقات الائتمانية.',
-      shipping: 'شحن مؤمن مجاني',
-      return: 'إرجاع خلال 14 يوماً',
-      warranty: 'ضمان صيانة مدى الحياة'
-    }
-  };
+    const L = labels[lang] || labels.TR;
+    const isRTL = lang === 'AR';
+    const name = product.name[lang] || product.name.TR;
+    const description = product.description?.[lang] || product.description?.TR || '';
+    const formattedPrice = new Intl.NumberFormat('tr-TR').format(product.price);
 
-  return (
-    <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6"
-      >
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose}></div>
-        <motion.div
-          initial={{ scale: 0.9, opacity: 0, y: 20 }}
-          animate={{ scale: 1, opacity: 1, y: 0 }}
-          exit={{ scale: 0.9, opacity: 0, y: 20 }}
-          className={`relative bg-white w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-sm shadow-2xl ${lang === 'AR' ? 'text-right' : ''}`}
-        >
-          <button
-            onClick={onClose}
-            className={`absolute top-4 p-2 text-zinc-400 hover:text-zinc-900 z-10 ${lang === 'AR' ? 'left-4' : 'right-4'}`}
-          >
-            <X size={24} />
-          </button>
+    const colorOptions = [
+      { color: '#C4956A', label: 'Rose Gold' },
+      { color: '#E8C96A', label: lang === 'TR' ? 'Sarı Altın' : lang === 'EN' ? 'Yellow Gold' : lang === 'DE' ? 'Gelbgold' : 'ذهب أصفر' },
+      { color: '#E8E8E8', label: lang === 'TR' ? 'Beyaz Altın' : lang === 'EN' ? 'White Gold' : lang === 'DE' ? 'Weißgold' : 'ذهب أبيض' },
+        ];
 
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className={`bg-[#F5F0E8] ${lang === 'AR' ? 'md:order-2' : ''}`}>
-              <div className="relative overflow-hidden" style={{ aspectRatio: '1/1' }}>
-                <AnimatePresence mode="wait">
-                  <motion.img
-                    key={activeImage}
-                    src={images[activeImage]}
-                    alt={product.name[lang]}
-                    className="w-full h-full object-cover"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </AnimatePresence>
-                {images.length > 1 && (
-                  <>
-                    <button
-                      onClick={prevImage}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-white/80 hover:bg-white flex items-center justify-center shadow-md transition-all"
-                    >
-                      <ChevronLeft size={18} className="text-[#2C2C2C]" />
-                    </button>
-                    <button
-                      onClick={nextImage}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-white/80 hover:bg-white flex items-center justify-center shadow-md transition-all"
-                    >
-                      <ChevronRight size={18} className="text-[#2C2C2C]" />
-                    </button>
-                  </>
-                )}
-              </div>
-
-              {images.length > 1 && (
-                <div className="flex gap-2 p-3 overflow-x-auto bg-[#EDE7D9]">
-                  {images.map((img, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setActiveImage(idx)}
-                      className={`flex-shrink-0 w-14 h-14 overflow-hidden border-2 transition-all ${
-                        activeImage === idx ? 'border-[#B8962E]' : 'border-transparent opacity-60 hover:opacity-100'
-                      }`}
-                    >
-                      <img
-                        src={img}
-                        alt={`${product.name[lang]} ${idx + 1}`}
-                        className="w-full h-full object-cover"
-                      />
-                    </button>
-                  ))}
+    return (
+          <>
+            {/* Backdrop */}
+                <div
+                          onClick={onClose}
+                          style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.6)', zIndex: 100 }}
+                        />
+          
+            {/* Modal */}
+                <div style={{
+                    position: 'fixed',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '90%',
+                    maxWidth: '900px',
+                    maxHeight: '90vh',
+                    backgroundColor: '#FFFFFF',
+                    zIndex: 101,
+                    overflowY: 'auto',
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 1fr',
+                    direction: isRTL ? 'rtl' : 'ltr',
+          }}>
+                  {/* Close button */}
+                        <button
+                                    onClick={onClose}
+                                    style={{
+                                                  position: 'absolute',
+                                                  top: '16px',
+                                                  [isRTL ? 'left' : 'right']: '16px',
+                                                  background: 'none',
+                                                  border: 'none',
+                                                  cursor: 'pointer',
+                                                  color: '#6B6B6B',
+                                                  zIndex: 10,
+                                                  padding: '4px',
+                                                  display: 'flex',
+                                    }}
+                                  >
+                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                              <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                                  </svg>svg>
+                        </button>button>
+                
+                  {/* Left: Image */}
+                        <div style={{ backgroundColor: '#F5F3EE', position: 'relative', overflow: 'hidden' }}>
+                                  <div style={{ aspectRatio: '1/1', position: 'relative', overflow: 'hidden' }}>
+                                              <img
+                                                              src={images[activeImage]}
+                                                              alt={name}
+                                                              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                                                            />
+                                  </div>div>
+                        
+                          {/* Thumbnails */}
+                          {images.length > 1 && (
+                        <div style={{ display: 'flex', gap: '8px', padding: '12px', justifyContent: 'center' }}>
+                          {images.map((img, i) => (
+                                          <button
+                                                              key={i}
+                                                              onClick={() => setActiveImage(i)}
+                                                              style={{
+                                                                                    width: '48px',
+                                                                                    height: '48px',
+                                                                                    overflow: 'hidden',
+                                                                                    border: i === activeImage ? '2px solid #111111' : '2px solid transparent',
+                                                                                    padding: 0,
+                                                                                    cursor: 'pointer',
+                                                                                    backgroundColor: 'transparent',
+                                                              }}
+                                                            >
+                                                            <img src={img} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                          </button>button>
+                                        ))}
+                        </div>div>
+                                  )}
+                        </div>div>
+                
+                  {/* Right: Info */}
+                        <div style={{ padding: '40px 32px', display: 'flex', flexDirection: 'column', gap: '20px', textAlign: isRTL ? 'right' : 'left' }}>
+                          {/* Name & Price */}
+                                  <div>
+                                              <p style={{ fontFamily: '"Jost", sans-serif', fontSize: '11px', fontWeight: 300, color: '#6B6B6B', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>
+                                                {product.category[lang]}
+                                              </p>p>
+                                              <h2 style={{ fontFamily: '"Oswald", sans-serif', fontSize: '24px', fontWeight: 500, color: '#111111', textTransform: 'uppercase', margin: '0 0 12px' }}>
+                                                {name}
+                                              </h2>h2>
+                                              <p style={{ fontFamily: '"Jost", sans-serif', fontSize: '11px', fontWeight: 300, color: '#6B6B6B', marginBottom: '4px' }}>
+                                                {lang === 'TR' ? 'Normal fiyat' : lang === 'EN' ? 'Regular price' : lang === 'DE' ? 'Normalpreis' : 'السعر العادي'}
+                                              </p>p>
+                                              <p style={{ fontFamily: '"Jost", sans-serif', fontSize: '20px', fontWeight: 300, color: '#111111', margin: 0 }}>
+                                                {formattedPrice} TL
+                                              </p>p>
+                                  </div>div>
+                        
+                          {/* Color selector */}
+                                  <div>
+                                              <p style={{ fontFamily: '"Jost", sans-serif', fontSize: '12px', fontWeight: 500, color: '#111111', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '10px' }}>
+                                                {colorOptions[selectedColor].label}
+                                              </p>p>
+                                              <div style={{ display: 'flex', gap: '8px' }}>
+                                                {colorOptions.map((opt, i) => (
+                            <button
+                                                key={i}
+                                                onClick={() => setSelectedColor(i)}
+                                                title={opt.label}
+                                                style={{
+                                                                      width: '28px',
+                                                                      height: '28px',
+                                                                      borderRadius: '50%',
+                                                                      backgroundColor: opt.color,
+                                                                      border: i === selectedColor ? '2px solid #111111' : '1.5px solid rgba(0,0,0,0.15)',
+                                                                      cursor: 'pointer',
+                                                                      padding: 0,
+                                                                      boxShadow: i === selectedColor ? '0 0 0 2px #FFFFFF, 0 0 0 3px #111111' : 'none',
+                                                                      transition: 'all 0.2s',
+                                                }}
+                                              />
+                          ))}
+                                              </div>div>
+                                  </div>div>
+                        
+                          {/* Add to cart */}
+                                  <button
+                                                onClick={() => onAddToCart(product)}
+                                                style={{
+                                                                width: '100%',
+                                                                padding: '14px 24px',
+                                                                backgroundColor: '#111111',
+                                                                color: '#FFFFFF',
+                                                                fontFamily: '"Jost", sans-serif',
+                                                                fontSize: '13px',
+                                                                fontWeight: 500,
+                                                                letterSpacing: '0.5px',
+                                                                textTransform: 'uppercase',
+                                                                border: 'none',
+                                                                cursor: 'pointer',
+                                                }}
+                                              >
+                                    {L.addToCart}
+                                  </button>button>
+                        
+                          {/* Description */}
+                          {description && (
+                        <div style={{ borderTop: '1px solid #ECECEC', paddingTop: '20px' }}>
+                                      <p style={{ fontFamily: '"Jost", sans-serif', fontSize: '12px', fontWeight: 500, color: '#111111', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '8px' }}>
+                                        {L.description}
+                                      </p>p>
+                                      <p style={{ fontFamily: '"Jost", sans-serif', fontSize: '13px', fontWeight: 300, color: '#6B6B6B', lineHeight: '1.6' }}>
+                                        {description}
+                                      </p>p>
+                        </div>
+                                  )}
+                        
+                          {/* Trust badges */}
+                                  <div style={{ borderTop: '1px solid #ECECEC', paddingTop: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                    {[
+            { Icon: Truck, text: L.shipping },
+            { Icon: RotateCcw, text: L.ret },
+            { Icon: ShieldCheck, text: L.warranty },
+                        ].map(({ Icon, text }) => (
+                                        <div key={text} style={{ display: 'flex', alignItems: 'center', gap: '10px', flexDirection: isRTL ? 'row-reverse' : 'row' }}>
+                                          {React.createElement(Icon, { size: 16, strokeWidth: 1.5, color: '#6B6B6B' })}
+                                                        <span style={{ fontFamily: '"Jost", sans-serif', fontSize: '12px', fontWeight: 300, color: '#6B6B6B' }}>{text}</span>span>
+                                        </div>
+                                      ))}
+                                  </div>
+                        </div>
                 </div>
-              )}
-            </div>
-
-            <div className="p-8 md:p-12">
-              <p className="text-xs uppercase tracking-[0.3em] text-[#B8962E] mb-2">
-                {product.category[lang]}
-              </p>
-              <h2 className="text-4xl font-serif text-zinc-900 mb-4">
-                {product.name[lang]}
-              </h2>
-              <p className="text-2xl font-medium text-zinc-900 mb-8 tracking-wider">
-                {product.price.toLocaleString('tr-TR')} ₺
-              </p>
-
-              <div className="space-y-6 mb-10">
-                <div>
-                  <h4 className="text-xs uppercase tracking-widest font-bold text-zinc-400 mb-2">
-                    {labels[lang].description}
-                  </h4>
-                  <p className="text-zinc-600 font-light leading-relaxed">
-                    {product.description[lang]}
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="text-xs uppercase tracking-widest font-bold text-zinc-400 mb-2">
-                    {labels[lang].details}
-                  </h4>
-                  <ul className="grid grid-cols-2 gap-2">
-                    {product.details[lang].map((detail, idx) => (
-                      <li key={idx} className={`text-xs text-zinc-500 flex items-center ${lang === 'AR' ? 'flex-row-reverse' : ''}`}>
-                        <span className={`w-1 h-1 bg-[#B8962E] rounded-full ${lang === 'AR' ? 'ml-2' : 'mr-2'}`}></span>
-                        {detail}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="p-4 bg-zinc-50 border border-zinc-100 rounded-sm">
-                  <div className={`flex items-center space-x-3 text-zinc-700 mb-1 ${lang === 'AR' ? 'flex-row-reverse space-x-reverse' : ''}`}>
-                    <CreditCard size={18} className="text-[#B8962E]" />
-                    <h4 className="text-xs font-bold uppercase tracking-wider">
-                      {labels[lang].installments}
-                    </h4>
-                  </div>
-                  <p className={`text-[11px] text-zinc-500 ${lang === 'AR' ? 'mr-7' : 'ml-7'}`}>
-                    {labels[lang].installmentText}
-                  </p>
-                </div>
-              </div>
-
-              <button
-                onClick={() => onAddToCart(product)}
-                className="w-full py-5 text-white font-bold uppercase tracking-[0.2em] text-xs hover:shadow-xl transition-all mb-8"
-                style={{ background: 'linear-gradient(135deg, #B8962E 0%, #D4AF5A 40%, #B8962E 60%, #8B6914 100%)' }}
-              >
-                {labels[lang].addToCart}
-              </button>
-
-              <div className="grid grid-cols-3 gap-4 border-t border-zinc-100 pt-8">
-                <div className="text-center">
-                  <Truck size={20} className="mx-auto text-[#B8962E] mb-2" />
-                  <p className="text-[9px] uppercase tracking-wider text-zinc-500">{labels[lang].shipping}</p>
-                </div>
-                <div className="text-center">
-                  <RotateCcw size={20} className="mx-auto text-[#B8962E] mb-2" />
-                  <p className="text-[9px] uppercase tracking-wider text-zinc-500">{labels[lang].return}</p>
-                </div>
-                <div className="text-center">
-                  <ShieldCheck size={20} className="mx-auto text-[#B8962E] mb-2" />
-                  <p className="text-[9px] uppercase tracking-wider text-zinc-500">{labels[lang].warranty}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </motion.div>
-    </AnimatePresence>
-  );
-};
+          </>>
+    
