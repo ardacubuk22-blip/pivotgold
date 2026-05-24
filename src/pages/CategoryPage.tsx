@@ -3,82 +3,126 @@ import { useParams, Link } from 'react-router-dom';
 import { products } from '../data/products';
 import { ProductCard } from '../components/ProductCard';
 import { Language, Product } from '../types';
-import { motion } from 'motion/react';
-import { ArrowLeft } from 'lucide-react';
 
 interface CategoryPageProps {
-  lang: Language;
-  onAddToCart: (product: Product) => void;
-  onViewDetails: (product: Product) => void;
+    lang: Language;
+    onAddToCart: (product: Product) => void;
+    onViewDetails: (product: Product) => void;
 }
 
 export const CategoryPage: React.FC<CategoryPageProps> = ({ lang, onAddToCart, onViewDetails }) => {
-  const { categoryName } = useParams<{ categoryName: string }>();
+    const { categoryName } = useParams<{ categoryName: string }>();
 
-  const filteredProducts = products.filter(p => {
-    if (!categoryName || categoryName.toLowerCase() === 'koleksiyonlar') return true;
-    // Check if categoryName matches any of the category translations
-    return Object.values(p.category).some(cat => cat.toLowerCase() === categoryName.toLowerCase());
-  });
+    const filteredProducts = products.filter(p => {
+          if (!categoryName || categoryName.toLowerCase() === 'all') return true;
+          return Object.values(p.category).some(cat => cat.toLowerCase() === categoryName.toLowerCase());
+    });
 
-  const titles = {
-    TR: 'Koleksiyonlar',
-    EN: 'Collections',
-    DE: 'Kollektionen',
-    AR: 'المجموعات'
-  };
+    const titles: Record<Language, string> = {
+          TR: 'Koleksiyonlar',
+          EN: 'Collections',
+          DE: 'Kollektionen',
+          AR: 'المجموعات',
+    };
 
-  const categoryTitle = categoryName && categoryName.toLowerCase() !== 'koleksiyonlar' 
-    ? categoryName 
-    : titles[lang];
+    const backText: Record<Language, string> = {
+          TR: 'Geri',
+          EN: 'Back',
+          DE: 'Zurück',
+          AR: 'عودة',
+    };
 
-  const backText = {
-    TR: 'Geri',
-    EN: 'Back',
-    DE: 'Zurück',
-    AR: 'عودة'
-  };
+    const emptyText: Record<Language, string> = {
+          TR: 'Bu kategoride ürün bulunamadı.',
+          EN: 'No products found in this category.',
+          DE: 'Keine Produkte in dieser Kategorie gefunden.',
+          AR: 'لم يتم العثور على منتجات في هذه الفئة.',
+    };
 
-  return (
-    <div className="pt-32 pb-24 bg-white min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-12">
-          <Link 
-            to="/" 
-            className="inline-flex items-center space-x-2 text-zinc-500 hover:text-gold transition-colors mb-8 group"
-          >
-            <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-            <span className="text-xs uppercase tracking-widest font-bold">{backText[lang]}</span>
-          </Link>
+    const categoryTitle = categoryName && categoryName.toLowerCase() !== 'all'
+      ? categoryName.charAt(0).toUpperCase() + categoryName.slice(1)
+          : titles[lang];
+
+    return (
+          <main style={{ backgroundColor: '#FFFFFF', minHeight: '100vh', paddingTop: '56px' }}>
+            {/* Page Header */}
+                  <div style={{ borderBottom: '1px solid #ECECEC', padding: '32px 24px 24px' }}>
+                            <Link
+                                        to="/"
+                                        style={{
+                                                      display: 'inline-flex',
+                                                      alignItems: 'center',
+                                                      gap: '6px',
+                                                      fontFamily: '"Jost", sans-serif',
+                                                      fontSize: '12px',
+                                                      fontWeight: 500,
+                                                      letterSpacing: '0.5px',
+                                                      textTransform: 'uppercase',
+                                                      color: '#6B6B6B',
+                                                      textDecoration: 'none',
+                                                      marginBottom: '20px',
+                                        }}
+                                      >
+                                      ← {backText[lang]}
+                            </Link>Link>
+                          <h1 style={{
+                      fontFamily: '"Oswald", sans-serif',
+                      fontSize: '28px',
+                      fontWeight: 500,
+                      color: '#111111',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0',
+                      margin: 0,
+          }}>
+                            {categoryTitle}
+                          </h1>h1>
+                          <p style={{
+                      fontFamily: '"Jost", sans-serif',
+                      fontSize: '13px',
+                      fontWeight: 300,
+                      color: '#6B6B6B',
+                      marginTop: '6px',
+          }}>
+                            {filteredProducts.length} {lang === 'TR' ? 'ürün' : lang === 'EN' ? 'products' : lang === 'DE' ? 'Produkte' : 'منتج'}
+                          </p>p>
+                  </div>div>
           
-          <div className="text-center">
-            <h1 className="text-5xl font-serif text-zinc-900 mb-4 capitalize">
-              {categoryTitle}
-            </h1>
-            <div className="w-20 h-[1px] bg-gold mx-auto"></div>
-          </div>
-        </div>
-
-        {filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
-            {filteredProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                lang={lang}
-                onAddToCart={onAddToCart}
-                onViewDetails={onViewDetails}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-24">
-            <p className="text-zinc-400 font-light">
-              {lang === 'TR' ? 'Bu kategoride ürün bulunamadı.' : lang === 'EN' ? 'No products found in this category.' : lang === 'DE' ? 'Keine Produkte in dieser Kategorie gefunden.' : 'لم يتم العثور على منتجات في هذه الفئة.'}
-            </p>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
+            {/* Product Grid */}
+                <div style={{ padding: '32px 24px 64px' }}>
+                  {filteredProducts.length > 0 ? (
+                      <div style={{
+                                    display: 'grid',
+                                    gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+                                    gap: '24px 16px',
+                      }}>
+                        {filteredProducts.map((product) => (
+                                      <ProductCard
+                                                        key={product.id}
+                                                        product={product}
+                                                        lang={lang}
+                                                        onAddToCart={onAddToCart}
+                                                        onViewDetails={onViewDetails}
+                                                      />
+                                    ))}
+                      </div>div>
+                    ) : (
+                      <div style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    padding: '96px 24px',
+                      }}>
+                                  <p style={{
+                                      fontFamily: '"Jost", sans-serif',
+                                      fontSize: '14px',
+                                      fontWeight: 300,
+                                      color: '#6B6B6B',
+                      }}>
+                                    {emptyText[lang]}
+                                  </p>p>
+                      </div>div>
+                        )}
+                </div>div>
+          </main>main>
+        );
+};</Link>
