@@ -1,45 +1,89 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Language } from '../types';
 
 interface NewsletterProps {
-  lang: Language;
+    lang: Language;
 }
 
 export const Newsletter: React.FC<NewsletterProps> = ({ lang }) => {
-  const content: Record<Language, { title: string; subtitle: string; placeholder: string; button: string }> = {
-    TR: { title: 'IŞILTIMIZDAN HABERDAR OLUN', subtitle: 'Yeni koleksiyonlar ve özel teklifler için bültenimize abone olun.', placeholder: 'E-posta adresiniz', button: 'ABONE OL' },
-    EN: { title: 'STAY INFORMED OF OUR SPARKLE', subtitle: 'Subscribe to our newsletter for new collections and special offers.', placeholder: 'Your email address', button: 'SUBSCRIBE' },
-    DE: { title: 'BLEIBEN SIE ÜBER UNSEREN GLANZ INFORMIERT', subtitle: 'Abonnieren Sie unseren Newsletter für neue Kollektionen.', placeholder: 'Ihre E-Mail-Adresse', button: 'ABONNIEREN' },
-    AR: { title: 'ابق على اطلاع ببريقنا', subtitle: 'اشترك في نشرتنا الإخبارية للحصول على المجموعات الجديدة.', placeholder: 'عنوان بريدك الإلكتروني', button: 'اشتراك' },
-  };
-  const c = content[lang] || content.TR;
-  const [email, setEmail] = React.useState('');
-  const isRTL = lang === 'AR';
+    const [email, setEmail] = useState('');
+    const [submitted, setSubmitted] = useState(false);
 
-  return (
-    <section style={{ backgroundColor: '#F5F3EE', padding: '64px 0', borderTop: '1px solid #ECECEC' }}>
-      <div style={{ maxWidth: '640px', margin: '0 auto', padding: '0 24px', textAlign: 'center', direction: isRTL ? 'rtl' : 'ltr' }}>
-        <h2 style={{ fontFamily: '"Oswald", sans-serif', fontSize: '24px', fontWeight: 500, color: '#111111', textTransform: 'uppercase', letterSpacing: '0', marginBottom: '12px' }}>
-          {c.title}
-        </h2>
-        <p style={{ fontFamily: '"Jost", sans-serif', fontSize: '14px', fontWeight: 300, color: '#6B6B6B', lineHeight: '1.6', marginBottom: '32px' }}>
-          {c.subtitle}
-        </p>
-        <div style={{ display: 'flex', gap: '0', maxWidth: '480px', margin: '0 auto' }}>
-          <input
-            type='email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder={c.placeholder}
-            style={{ fontFamily: '"Jost", sans-serif', fontSize: '13px', flex: 1, padding: '12px 16px', background: '#FFFFFF', border: '1px solid #ECECEC', borderRight: 'none', color: '#111111', outline: 'none' }}
-          />
-          <button
-            style={{ fontFamily: '"Jost", sans-serif', fontSize: '13px', fontWeight: 500, letterSpacing: '0.5px', textTransform: 'uppercase', background: '#111111', color: '#FFFFFF', border: 'none', padding: '12px 24px', cursor: 'pointer', whiteSpace: 'nowrap' }}
-          >
-            {c.button}
-          </button>
-        </div>
-      </div>
-    </section>
-  );
+    const content: Record<Language, { tag: string; title: string; sub: string; placeholder: string; btn: string; success: string }> = {
+          TR: {
+                  tag: 'B\u00dcLTEN',
+                  title: 'YEN\u0130 KOLEKSiYONLARDAN\nHABERDAR OLUN',
+                  sub: 'Pivot Gold\'un yeni tasar\u0131mlar\u0131n\u0131, \u00f6zel kampanyalar\u0131n\u0131 ve indirimlerini ilk \u00f6\u011frenenler aras\u0131nda olun.',
+                  placeholder: 'E-posta adresiniz',
+                  btn: 'ABONE OL',
+                  success: 'Abone oldu\u011funuz i\u00e7in te\u015fekk\u00fcrler!',
+          },
+          EN: {
+                  tag: 'NEWSLETTER',
+                  title: 'STAY UPDATED WITH\nNEW COLLECTIONS',
+                  sub: 'Be among the first to discover Pivot Gold\'s new designs, exclusive campaigns, and special discounts.',
+                  placeholder: 'Your email address',
+                  btn: 'SUBSCRIBE',
+                  success: 'Thank you for subscribing!',
+          },
+    };
+
+    const c = content[lang] || content.TR;
+
+    return (
+          <section style={{
+                  position: 'relative',
+                  backgroundColor: '#111111',
+                  padding: '100px 48px',
+                  overflow: 'hidden',
+                  textAlign: 'center',
+          }}>
+            {/* Decorative gold lines */}
+                  <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(90deg, transparent, #B8962E, transparent)' }} />
+                  <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(90deg, transparent, #B8962E, transparent)' }} />
+
+            {/* Background pattern */}
+                  <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle at 50% 50%, rgba(184,150,46,0.06) 0%, transparent 70%)' }} />
+
+                  <div style={{ position: 'relative', zIndex: 1, maxWidth: '600px', margin: '0 auto' }}>
+                            <p style={{ fontFamily: '"Jost", sans-serif', fontSize: '11px', fontWeight: 600, letterSpacing: '0.3em', color: '#B8962E', textTransform: 'uppercase', marginBottom: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
+                                        <span style={{ display: 'inline-block', width: '30px', height: '1px', backgroundColor: '#B8962E' }}></span>span>
+                              {c.tag}
+                                        <span style={{ display: 'inline-block', width: '30px', height: '1px', backgroundColor: '#B8962E' }}></span>span>
+                            </p>p>
+                            <h2 style={{ fontFamily: '"Oswald", sans-serif', fontSize: '36px', fontWeight: 500, color: '#FFFFFF', textTransform: 'uppercase', letterSpacing: '0.02em', lineHeight: '1.15', marginBottom: '20px', whiteSpace: 'pre-line' }}>
+                              {c.title}
+                            </h2>h2>
+                            <p style={{ fontFamily: '"Jost", sans-serif', fontSize: '14px', fontWeight: 300, color: 'rgba(255,255,255,0.6)', lineHeight: '1.8', marginBottom: '40px' }}>
+                              {c.sub}
+                            </p>p>
+
+                    {submitted ? (
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', padding: '16px 32px', border: '1px solid #B8962E' }}>
+                                    <span style={{ color: '#B8962E', fontSize: '18px' }}>&#10003;</span>span>
+                                    <span style={{ fontFamily: '"Jost", sans-serif', fontSize: '14px', color: '#B8962E', letterSpacing: '0.1em' }}>{c.success}</span>span>
+                      </div>div>
+                    ) : (
+                      <div style={{ display: 'flex', maxWidth: '480px', margin: '0 auto' }}>
+                                    <input
+                                                    type='email'
+                                                    value={email}
+                                                    onChange={(e) => setEmail(e.target.value)}
+                                                    placeholder={c.placeholder}
+                                                    style={{ flex: 1, fontFamily: '"Jost", sans-serif', fontSize: '13px', padding: '14px 20px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.2)', borderRight: 'none', color: '#FFFFFF', outline: 'none', letterSpacing: '0.05em' }}
+                                                  />
+                                    <button
+                                                    onClick={() => { if (email) setSubmitted(true); }}
+                                                    style={{ fontFamily: '"Jost", sans-serif', fontSize: '11px', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', backgroundColor: '#B8962E', color: '#111111', border: 'none', padding: '14px 28px', cursor: 'pointer', transition: 'background 0.3s, transform 0.2s', whiteSpace: 'nowrap' }}
+                                                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor = '#D4AF5A'; }}
+                                                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor = '#B8962E'; }}
+                                                  >
+                                      {c.btn}
+                                    </button>button>
+                      </div>div>
+                          )}
+                  </div>div>
+          </section>section>
+        );
 };
+</button>
