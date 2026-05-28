@@ -12,9 +12,7 @@ const slides = [
   {
     image: '/images/category-ring-2.jpg',
     subtitle: { TR: 'YENİ KOLEKSİYON 2025', EN: 'NEW COLLECTION 2025' },
-    heading: { TR: 'ALTINİN
-ŞİİRİ SANATTA', EN: 'THE POETRY
-OF GOLD' },
+    heading: { TR: 'ALTINİN\nŞİİRİ SANATTA', EN: 'THE POETRY\nOF GOLD' },
     cta: { TR: 'KEşFET', EN: 'DISCOVER' },
     link: '/category/new',
     accent: '#B8962E',
@@ -22,9 +20,7 @@ OF GOLD' },
   {
     image: '/images/category-ring-4.jpg',
     subtitle: { TR: 'EL İŞİ ZANATKARLIK', EN: 'HANDCRAFTED MASTERY' },
-    heading: { TR: 'PİRLANTA
-KOLEKSİYONU', EN: 'DIAMOND
-COLLECTION' },
+    heading: { TR: 'PİRLANTA\nKOLEKSİYONU', EN: 'DIAMOND\nCOLLECTION' },
     cta: { TR: 'İNCELE', EN: 'EXPLORE' },
     link: '/category/diamond',
     accent: '#C8A84B',
@@ -32,9 +28,7 @@ COLLECTION' },
   {
     image: '/images/category-ring-5.jpg',
     subtitle: { TR: '14 AYAR ALTIN', EN: '14K GOLD JEWELRY' },
-    heading: { TR: 'PIVOT GOLD
-MARKASI', EN: 'PIVOT GOLD
-BRAND' },
+    heading: { TR: 'PIVOT GOLD\nMARKASI', EN: 'PIVOT GOLD\nBRAND' },
     cta: { TR: 'KOLEKSİYONU GÖR', EN: 'VIEW COLLECTION' },
     link: '/category/ring',
     accent: '#B8962E',
